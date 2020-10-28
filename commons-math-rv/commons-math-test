@@ -1,0 +1,1551 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-math4:jar:4.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 235, column 10
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 235, column 10
+[WARNING] 'parent.relativePath' of POM org.apache.commons:commons-math4:4.0-SNAPSHOT (/home/mopuser/commons-math/pom.xml) points at org.apache.commons:commons-math4 instead of org.apache.commons:commons-parent, please verify your project structure @ line 20, column 11
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Math 4.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-math4 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-3) @ commons-math4 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-math4 ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Parsing exclusions from /home/mopuser/commons-math/.gitignore
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 74 implicit excludes (use -debug for more details).
+[INFO] 35 explicit excludes (use -debug for more details).
+[INFO] 1306 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 1278 licenses.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.7:parse-version (parse-version) @ commons-math4 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-math4 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-math4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-math4 ---
+[INFO] Executing: /bin/sh -c cd '/home/mopuser/commons-math' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/mopuser/commons-math
+[INFO] Storing buildNumber: 43b77ffabba8a48144080674973362150cbcfb28 at timestamp: 2020-10-28 00:17:35+0000
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-jgit-buildnumber-plugin:1.2.11:extract-buildnumber (default) @ commons-math4 ---
+[INFO] Git info extracted in 194ms, revision: '43b77ff', branch: 'master', tag: '', commitsCount: '6602', commitDate: '2020-10-21', buildDate: '2020-10-28', buildnumber: 'master.6602.43b77ff'
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-math4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-math4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 706 source files to /home/mopuser/commons-math/target/classes
+[INFO] /home/mopuser/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java: /home/mopuser/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java uses unchecked or unsafe operations.
+[INFO] /home/mopuser/commons-math/src/main/java/org/apache/commons/math4/field/linalg/FieldDenseMatrix.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-math4 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-math4 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-math4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 38 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-math4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 440 source files to /home/mopuser/commons-math/target/test-classes
+[INFO] /home/mopuser/commons-math/src/test/java/org/apache/commons/math4/fitting/leastsquares/AbstractLeastSquaresOptimizerAbstractTest.java: Some input files use or override a deprecated API.
+[INFO] /home/mopuser/commons-math/src/test/java/org/apache/commons/math4/fitting/leastsquares/AbstractLeastSquaresOptimizerAbstractTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-math4 ---
+[INFO] argLine set to -javaagent:/home/mopuser/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/mopuser/commons-math/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ commons-math4 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.math4.linear.RealVectorFormatTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.math4.linear.RealVectorFormatTest
+[INFO] Running org.apache.commons.math4.linear.SchurTransformerTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.206 s - in org.apache.commons.math4.linear.SchurTransformerTest
+[INFO] Running org.apache.commons.math4.linear.Array2DRowRealMatrixTest
+AVH:outputstreaminit740781419
+AVH:write740781419
+AVH:tobytearray740781419
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.TestUtils.serializeAndRecover(TestUtils.java:117). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.TestUtils.serializeAndRecover(TestUtils.java:117)
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in org.apache.commons.math4.linear.Array2DRowRealMatrixTest
+[INFO] Running org.apache.commons.math4.linear.OpenMapRealMatrixTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.linear.OpenMapRealMatrixTest
+[INFO] Running org.apache.commons.math4.linear.LUSolverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.linear.LUSolverTest
+[INFO] Running org.apache.commons.math4.linear.BiDiagonalTransformerTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.linear.BiDiagonalTransformerTest
+[INFO] Running org.apache.commons.math4.linear.EigenSolverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.linear.EigenSolverTest
+[INFO] Running org.apache.commons.math4.linear.ArrayFieldVectorTest
+AVH:outputstreaminit228636156
+AVH:write228636156
+AVH:tobytearray228636156
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s - in org.apache.commons.math4.linear.ArrayFieldVectorTest
+[INFO] Running org.apache.commons.math4.linear.CholeskySolverTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.linear.CholeskySolverTest
+[INFO] Running org.apache.commons.math4.linear.RealMatrixFormatTest
+[WARNING] Tests run: 29, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.01 s - in org.apache.commons.math4.linear.RealMatrixFormatTest
+[INFO] Running org.apache.commons.math4.linear.HessenbergTransformerTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.math4.linear.HessenbergTransformerTest
+[INFO] Running org.apache.commons.math4.linear.ConjugateGradientTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in org.apache.commons.math4.linear.ConjugateGradientTest
+[INFO] Running org.apache.commons.math4.linear.QRSolverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.math4.linear.QRSolverTest
+[INFO] Running org.apache.commons.math4.linear.FieldMatrixImplTest
+AVH:outputstreaminit1271147088
+AVH:write1271147088
+AVH:tobytearray1271147088
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.457 s - in org.apache.commons.math4.linear.FieldMatrixImplTest
+[INFO] Running org.apache.commons.math4.linear.SparseRealMatrixTest
+AVH:outputstreaminit446966876
+AVH:write446966876
+AVH:tobytearray446966876
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.linear.SparseRealMatrixTest
+[INFO] Running org.apache.commons.math4.linear.FieldLUSolverTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.linear.FieldLUSolverTest
+[INFO] Running org.apache.commons.math4.linear.RRQRDecompositionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.apache.commons.math4.linear.RRQRDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.SingularValueSolverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.linear.SingularValueSolverTest
+[INFO] Running org.apache.commons.math4.linear.CholeskyDecompositionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.linear.CholeskyDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.MatrixDimensionMismatchExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.linear.MatrixDimensionMismatchExceptionTest
+[INFO] Running org.apache.commons.math4.linear.UnmodifiableOpenMapRealVectorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.apache.commons.math4.linear.UnmodifiableOpenMapRealVectorTest
+[INFO] Running org.apache.commons.math4.linear.RealVectorTest
+[WARNING] Tests run: 105, Failures: 0, Errors: 0, Skipped: 24, Time elapsed: 0.111 s - in org.apache.commons.math4.linear.RealVectorTest
+[INFO] Running org.apache.commons.math4.linear.SingularValueDecompositionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.apache.commons.math4.linear.SingularValueDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.QRDecompositionTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.math4.linear.QRDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.LUDecompositionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.linear.LUDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.SparseFieldVectorTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.math4.linear.SparseFieldVectorTest
+[INFO] Running org.apache.commons.math4.linear.SparseRealVectorTest
+AVH:outputstreaminit1153086180
+AVH:write1153086180
+AVH:tobytearray1153086180
+[INFO] Tests run: 106, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.apache.commons.math4.linear.SparseRealVectorTest
+[INFO] Running org.apache.commons.math4.linear.RRQRSolverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.linear.RRQRSolverTest
+[INFO] Running org.apache.commons.math4.linear.ArrayRealVectorTest
+AVH:outputstreaminit2145018553
+AVH:write2145018553
+AVH:tobytearray2145018553
+[INFO] Tests run: 108, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.math4.linear.ArrayRealVectorTest
+[INFO] Running org.apache.commons.math4.linear.MatrixUtilsTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.linear.MatrixUtilsTest
+[INFO] Running org.apache.commons.math4.linear.FrenchRealVectorFormatTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.linear.FrenchRealVectorFormatTest
+[INFO] Running org.apache.commons.math4.linear.RectangularCholeskyDecompositionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.linear.RectangularCholeskyDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.BlockRealMatrixTest
+AVH:outputstreaminit2013961384
+AVH:write2013961384
+AVH:tobytearray2013961384
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.math4.linear.BlockRealMatrixTest
+[INFO] Running org.apache.commons.math4.linear.SymmLQTest
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.18 s - in org.apache.commons.math4.linear.SymmLQTest
+[INFO] Running org.apache.commons.math4.linear.TriDiagonalTransformerTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.linear.TriDiagonalTransformerTest
+[INFO] Running org.apache.commons.math4.linear.EigenDecompositionTest
+[WARNING] Tests run: 30, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.245 s - in org.apache.commons.math4.linear.EigenDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.FieldLUDecompositionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.linear.FieldLUDecompositionTest
+[INFO] Running org.apache.commons.math4.linear.UnmodifiableArrayRealVectorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.math4.linear.UnmodifiableArrayRealVectorTest
+[INFO] Running org.apache.commons.math4.linear.DiagonalMatrixTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.linear.DiagonalMatrixTest
+[INFO] Running org.apache.commons.math4.linear.BlockFieldMatrixTest
+AVH:outputstreaminit553805551
+AVH:write553805551
+AVH:tobytearray553805551
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.246 s - in org.apache.commons.math4.linear.BlockFieldMatrixTest
+[INFO] Running org.apache.commons.math4.linear.SparseFieldMatrixTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.linear.SparseFieldMatrixTest
+[INFO] Running org.apache.commons.math4.random.UncorrelatedRandomVectorGeneratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.random.UncorrelatedRandomVectorGeneratorTest
+[INFO] Running org.apache.commons.math4.random.SynchronizedRandomGeneratorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.438 s - in org.apache.commons.math4.random.SynchronizedRandomGeneratorTest
+[INFO] Running org.apache.commons.math4.random.HaltonSequenceGeneratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.random.HaltonSequenceGeneratorTest
+[INFO] Running org.apache.commons.math4.random.CorrelatedRandomVectorGeneratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.math4.random.CorrelatedRandomVectorGeneratorTest
+[INFO] Running org.apache.commons.math4.random.UniformRandomGeneratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.math4.random.UniformRandomGeneratorTest
+[INFO] Running org.apache.commons.math4.random.GaussianRandomGeneratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.random.GaussianRandomGeneratorTest
+[INFO] Running org.apache.commons.math4.random.RandomUtilsDataGeneratorJDKRandomTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.489 s - in org.apache.commons.math4.random.RandomUtilsDataGeneratorJDKRandomTest
+[INFO] Running org.apache.commons.math4.random.SobolSequenceGeneratorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.math4.random.SobolSequenceGeneratorTest
+[INFO] Running org.apache.commons.math4.random.StableRandomGeneratorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.math4.random.StableRandomGeneratorTest
+[INFO] Running org.apache.commons.math4.dfp.DfpTest
+[INFO] Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.41 s - in org.apache.commons.math4.dfp.DfpTest
+[INFO] Running org.apache.commons.math4.dfp.DfpMathTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.dfp.DfpMathTest
+[INFO] Running org.apache.commons.math4.dfp.DfpDecTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.dfp.DfpDecTest
+[INFO] Running org.apache.commons.math4.fitting.PolynomialCurveFitterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.564 s - in org.apache.commons.math4.fitting.PolynomialCurveFitterTest
+[INFO] Running org.apache.commons.math4.fitting.GaussianCurveFitterTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.math4.fitting.GaussianCurveFitterTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.EvaluationTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.math4.fitting.leastsquares.EvaluationTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.MinpackTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.apache.commons.math4.fitting.leastsquares.MinpackTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithQRTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithQRTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.EvaluationRmsCheckerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.fitting.leastsquares.EvaluationRmsCheckerTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithCholeskyTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithCholeskyTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithLUTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithLUTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithSVDTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in org.apache.commons.math4.fitting.leastsquares.GaussNewtonOptimizerWithSVDTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.DifferentiatorVectorMultivariateJacobianFunctionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.math4.fitting.leastsquares.DifferentiatorVectorMultivariateJacobianFunctionTest
+[INFO] Running org.apache.commons.math4.fitting.leastsquares.LevenbergMarquardtOptimizerTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.math4.fitting.leastsquares.LevenbergMarquardtOptimizerTest
+[INFO] Running org.apache.commons.math4.fitting.HarmonicCurveFitterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.math4.fitting.HarmonicCurveFitterTest
+[INFO] Running org.apache.commons.math4.fitting.WeightedObservedPointsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.fitting.WeightedObservedPointsTest
+[INFO] Running org.apache.commons.math4.fitting.SimpleCurveFitterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.fitting.SimpleCurveFitterTest
+[INFO] Running org.apache.commons.math4.RetryRunnerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.RetryRunnerTest
+[INFO] Running org.apache.commons.math4.genetics.RandomKeyTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.genetics.RandomKeyTest
+[INFO] Running org.apache.commons.math4.genetics.ChromosomeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.genetics.ChromosomeTest
+[INFO] Running org.apache.commons.math4.genetics.ListPopulationTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.genetics.ListPopulationTest
+[INFO] Running org.apache.commons.math4.genetics.ElitisticListPopulationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.genetics.ElitisticListPopulationTest
+[INFO] Running org.apache.commons.math4.genetics.RandomKeyMutationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.genetics.RandomKeyMutationTest
+[INFO] Running org.apache.commons.math4.genetics.BinaryMutationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.genetics.BinaryMutationTest
+[INFO] Running org.apache.commons.math4.genetics.BinaryChromosomeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.genetics.BinaryChromosomeTest
+[INFO] Running org.apache.commons.math4.genetics.OrderedCrossoverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.genetics.OrderedCrossoverTest
+[INFO] Running org.apache.commons.math4.genetics.UniformCrossoverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.math4.genetics.UniformCrossoverTest
+[INFO] Running org.apache.commons.math4.genetics.GeneticAlgorithmTestBinary
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.math4.genetics.GeneticAlgorithmTestBinary
+[INFO] Running org.apache.commons.math4.genetics.CycleCrossoverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.genetics.CycleCrossoverTest
+[INFO] Running org.apache.commons.math4.genetics.TournamentSelectionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.genetics.TournamentSelectionTest
+[INFO] Running org.apache.commons.math4.genetics.OnePointCrossoverTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.genetics.OnePointCrossoverTest
+[INFO] Running org.apache.commons.math4.genetics.NPointCrossoverTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.genetics.NPointCrossoverTest
+[INFO] Running org.apache.commons.math4.genetics.FixedGenerationCountTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.genetics.FixedGenerationCountTest
+[INFO] Running org.apache.commons.math4.genetics.FixedElapsedTimeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.03 s - in org.apache.commons.math4.genetics.FixedElapsedTimeTest
+[INFO] Running org.apache.commons.math4.genetics.GeneticAlgorithmTestPermutations
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in org.apache.commons.math4.genetics.GeneticAlgorithmTestPermutations
+[INFO] Running org.apache.commons.math4.genetics.FitnessCachingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.genetics.FitnessCachingTest
+[INFO] Running org.apache.commons.math4.transform.FastSineTransformerTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.math4.transform.FastSineTransformerTest
+[INFO] Running org.apache.commons.math4.transform.FastHadamardTransformerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.transform.FastHadamardTransformerTest
+[INFO] Running org.apache.commons.math4.transform.FastFourierTransformerTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.math4.transform.FastFourierTransformerTest
+[INFO] Running org.apache.commons.math4.transform.FastCosineTransformerTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.transform.FastCosineTransformerTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.oned.NeuronStringTest
+AVH:outputstreaminit1365326286
+AVH:write1365326286
+AVH:tobytearray1365326286
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ml.neuralnet.oned.NeuronStringTest.testSerialize(NeuronStringTest.java:160). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ml.neuralnet.oned.NeuronStringTest.testSerialize(NeuronStringTest.java:160)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.math4.ml.neuralnet.oned.NeuronStringTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.KohonenTrainingTaskTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.292 s - in org.apache.commons.math4.ml.neuralnet.sofm.KohonenTrainingTaskTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.LearningFactorFunctionFactoryTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.ml.neuralnet.sofm.LearningFactorFunctionFactoryTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.NeighbourhoodSizeFunctionFactoryTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.neuralnet.sofm.NeighbourhoodSizeFunctionFactoryTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.KohonenUpdateActionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.neuralnet.sofm.KohonenUpdateActionTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.util.ExponentialDecayFunctionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.neuralnet.sofm.util.ExponentialDecayFunctionTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.sofm.util.QuasiSigmoidDecayFunctionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.neuralnet.sofm.util.QuasiSigmoidDecayFunctionTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.twod.NeuronSquareMesh2DTest
+AVH:outputstreaminit659632320
+AVH:write659632320
+AVH:tobytearray659632320
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ml.neuralnet.twod.NeuronSquareMesh2DTest.testSerialize(NeuronSquareMesh2DTest.java:665). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ml.neuralnet.twod.NeuronSquareMesh2DTest.testSerialize(NeuronSquareMesh2DTest.java:665)
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.math4.ml.neuralnet.twod.NeuronSquareMesh2DTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.twod.util.LocationFinderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.neuralnet.twod.util.LocationFinderTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.MapRankingTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.neuralnet.MapRankingTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.NeuronTest
+AVH:outputstreaminit977769905
+AVH:write977769905
+AVH:tobytearray977769905
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ml.neuralnet.NeuronTest.testSerialize(NeuronTest.java:124). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ml.neuralnet.NeuronTest.testSerialize(NeuronTest.java:124)
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.neuralnet.NeuronTest
+[INFO] Running org.apache.commons.math4.ml.neuralnet.NetworkTest
+AVH:outputstreaminit1649629190
+AVH:write1649629190
+AVH:tobytearray1649629190
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ml.neuralnet.NetworkTest.testSerialize(NetworkTest.java:185). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ml.neuralnet.NetworkTest.testSerialize(NetworkTest.java:185)
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.ml.neuralnet.NetworkTest
+[INFO] Running org.apache.commons.math4.ml.distance.ManhattanDistanceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.distance.ManhattanDistanceTest
+[INFO] Running org.apache.commons.math4.ml.distance.EarthMoversDistanceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.distance.EarthMoversDistanceTest
+[INFO] Running org.apache.commons.math4.ml.distance.CanberraDistanceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.distance.CanberraDistanceTest
+[INFO] Running org.apache.commons.math4.ml.distance.ChebyshevDistanceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.distance.ChebyshevDistanceTest
+[INFO] Running org.apache.commons.math4.ml.distance.EuclideanDistanceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ml.distance.EuclideanDistanceTest
+[INFO] Running org.apache.commons.math4.ml.clustering.MiniBatchKMeansClustererTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s - in org.apache.commons.math4.ml.clustering.MiniBatchKMeansClustererTest
+[INFO] Running org.apache.commons.math4.ml.clustering.DBSCANClustererTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.ml.clustering.DBSCANClustererTest
+[INFO] Running org.apache.commons.math4.ml.clustering.evaluation.SumOfClusterVariancesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ml.clustering.evaluation.SumOfClusterVariancesTest
+[INFO] Running org.apache.commons.math4.ml.clustering.evaluation.CalinskiHarabaszTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.math4.ml.clustering.evaluation.CalinskiHarabaszTest
+[INFO] Running org.apache.commons.math4.ml.clustering.FuzzyKMeansClustererTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.ml.clustering.FuzzyKMeansClustererTest
+[INFO] Running org.apache.commons.math4.ml.clustering.KMeansPlusPlusClustererTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.ml.clustering.KMeansPlusPlusClustererTest
+[INFO] Running org.apache.commons.math4.ml.clustering.MultiKMeansPlusPlusClustererTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.ml.clustering.MultiKMeansPlusPlusClustererTest
+[INFO] Running org.apache.commons.math4.field.linalg.FP64FieldDenseMatrixTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.math4.field.linalg.FP64FieldDenseMatrixTest
+[INFO] Running org.apache.commons.math4.field.linalg.FieldLUDecompositionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.field.linalg.FieldLUDecompositionTest
+[INFO] Running org.apache.commons.math4.exception.TooManyEvaluationsExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.exception.TooManyEvaluationsExceptionTest
+[INFO] Running org.apache.commons.math4.exception.DimensionMismatchExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.DimensionMismatchExceptionTest
+[INFO] Running org.apache.commons.math4.exception.NumberIsTooLargeExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.NumberIsTooLargeExceptionTest
+[INFO] Running org.apache.commons.math4.exception.NotStrictlyPositiveExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.NotStrictlyPositiveExceptionTest
+[INFO] Running org.apache.commons.math4.exception.NonMonotonicSequenceExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.NonMonotonicSequenceExceptionTest
+[INFO] Running org.apache.commons.math4.exception.NotPositiveExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.NotPositiveExceptionTest
+[INFO] Running org.apache.commons.math4.exception.OutOfRangeExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.OutOfRangeExceptionTest
+[INFO] Running org.apache.commons.math4.exception.util.LocalizedFormatsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.math4.exception.util.LocalizedFormatsTest
+[INFO] Running org.apache.commons.math4.exception.util.ArgUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.util.ArgUtilsTest
+[INFO] Running org.apache.commons.math4.exception.util.ExceptionContextTest
+AVH:outputstreaminit1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:write1398494870
+AVH:tobytearray1398494870
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.exception.util.ExceptionContextTest.testSerializeUnserializable(ExceptionContextTest.java:115). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.exception.util.ExceptionContextTest.testSerializeUnserializable(ExceptionContextTest.java:115)
+AVH:outputstreaminit621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:write621393792
+AVH:tobytearray621393792
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.exception.util.ExceptionContextTest.testSerialize(ExceptionContextTest.java:92). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.exception.util.ExceptionContextTest.testSerialize(ExceptionContextTest.java:92)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.math4.exception.util.ExceptionContextTest
+[INFO] Running org.apache.commons.math4.exception.MaxCountExceededExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.MaxCountExceededExceptionTest
+[INFO] Running org.apache.commons.math4.exception.NumberIsTooSmallExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.exception.NumberIsTooSmallExceptionTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.SparseGradientTest
+AVH:outputstreaminit2058288120
+AVH:write2058288120
+AVH:tobytearray2058288120
+[INFO] Tests run: 120, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.232 s - in org.apache.commons.math4.analysis.differentiation.SparseGradientTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.FiniteDifferencesDifferentiatorTest
+AVH:outputstreaminit1130933103
+AVH:write1130933103
+AVH:tobytearray1130933103
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.math4.analysis.differentiation.FiniteDifferencesDifferentiatorTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.DSCompilerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.math4.analysis.differentiation.DSCompilerTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.JacobianFunctionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.analysis.differentiation.JacobianFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.GradientFunctionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.math4.analysis.differentiation.GradientFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.differentiation.DerivativeStructureTest
+AVH:outputstreaminit1616444076
+AVH:write1616444076
+AVH:tobytearray1616444076
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.593 s - in org.apache.commons.math4.analysis.differentiation.DerivativeStructureTest
+[INFO] Running org.apache.commons.math4.analysis.polynomials.PolynomialFunctionNewtonFormTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.polynomials.PolynomialFunctionNewtonFormTest
+[INFO] Running org.apache.commons.math4.analysis.polynomials.PolynomialFunctionLagrangeFormTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.polynomials.PolynomialFunctionLagrangeFormTest
+[INFO] Running org.apache.commons.math4.analysis.polynomials.PolynomialFunctionTest
+AVH:outputstreaminit1447150371
+AVH:write1447150371
+AVH:tobytearray1447150371
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.polynomials.PolynomialFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.polynomials.PolynomialSplineFunctionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.polynomials.PolynomialSplineFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.polynomials.PolynomialsUtilsTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 s - in org.apache.commons.math4.analysis.polynomials.PolynomialsUtilsTest
+[INFO] Running org.apache.commons.math4.analysis.FunctionUtilsTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in org.apache.commons.math4.analysis.FunctionUtilsTest
+[INFO] Running org.apache.commons.math4.analysis.function.LogitTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.analysis.function.LogitTest
+[INFO] Running org.apache.commons.math4.analysis.function.HarmonicOscillatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.function.HarmonicOscillatorTest
+[INFO] Running org.apache.commons.math4.analysis.function.LogisticTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.function.LogisticTest
+[INFO] Running org.apache.commons.math4.analysis.function.SqrtTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.function.SqrtTest
+[INFO] Running org.apache.commons.math4.analysis.function.GaussianTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.analysis.function.GaussianTest
+[INFO] Running org.apache.commons.math4.analysis.function.UnivariateFunctionTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.function.UnivariateFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.function.UnivariateDifferentiableFunctionTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.analysis.function.UnivariateDifferentiableFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.function.SincTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.math4.analysis.function.SincTest
+[INFO] Running org.apache.commons.math4.analysis.function.StepFunctionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.function.StepFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.function.BivariateFunctionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.function.BivariateFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.function.SigmoidTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.function.SigmoidTest
+[INFO] Running org.apache.commons.math4.analysis.integration.TrapezoidIntegratorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.integration.TrapezoidIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.integration.IterativeLegendreGaussIntegratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.467 s - in org.apache.commons.math4.analysis.integration.IterativeLegendreGaussIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.integration.MidPointIntegratorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.integration.MidPointIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.integration.SimpsonIntegratorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.integration.SimpsonIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.BaseRuleFactoryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.math4.analysis.integration.gauss.BaseRuleFactoryTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.HermiteParametricTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.math4.analysis.integration.gauss.HermiteParametricTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.LaguerreTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.analysis.integration.gauss.LaguerreTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.LegendreHighPrecisionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.676 s - in org.apache.commons.math4.analysis.integration.gauss.LegendreHighPrecisionTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.LegendreParametricTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.math4.analysis.integration.gauss.LegendreParametricTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.LegendreHighPrecisionParametricTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.491 s - in org.apache.commons.math4.analysis.integration.gauss.LegendreHighPrecisionParametricTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.LegendreTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.math4.analysis.integration.gauss.LegendreTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.GaussIntegratorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.integration.gauss.GaussIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.integration.gauss.HermiteTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.analysis.integration.gauss.HermiteTest
+[INFO] Running org.apache.commons.math4.analysis.integration.RombergIntegratorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.integration.RombergIntegratorTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.UnivariateSolverUtilsTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.analysis.solvers.UnivariateSolverUtilsTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.MullerSolverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.solvers.MullerSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.NewtonRaphsonSolverTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.analysis.solvers.NewtonRaphsonSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.IllinoisSolverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.analysis.solvers.IllinoisSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.FieldBracketingNthOrderBrentSolverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.422 s - in org.apache.commons.math4.analysis.solvers.FieldBracketingNthOrderBrentSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.RiddersSolverTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.solvers.RiddersSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.BisectionSolverTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.solvers.BisectionSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.SecantSolverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.analysis.solvers.SecantSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.BracketingNthOrderBrentSolverTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.analysis.solvers.BracketingNthOrderBrentSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.RegulaFalsiSolverTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.solvers.RegulaFalsiSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.LaguerreSolverTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.math4.analysis.solvers.LaguerreSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.BrentSolverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.analysis.solvers.BrentSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.PegasusSolverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.solvers.PegasusSolverTest
+[INFO] Running org.apache.commons.math4.analysis.solvers.MullerSolver2Test
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.solvers.MullerSolver2Test
+[INFO] Running org.apache.commons.math4.analysis.interpolation.PiecewiseBicubicSplineInterpolatingFunctionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.analysis.interpolation.PiecewiseBicubicSplineInterpolatingFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.TricubicInterpolatingFunctionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 s - in org.apache.commons.math4.analysis.interpolation.TricubicInterpolatingFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.FieldHermiteInterpolatorTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in org.apache.commons.math4.analysis.interpolation.FieldHermiteInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.BicubicInterpolatingFunctionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.math4.analysis.interpolation.BicubicInterpolatingFunctionTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.HermiteInterpolatorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.math4.analysis.interpolation.HermiteInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.NevilleInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.interpolation.NevilleInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.AkimaSplineInterpolatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.analysis.interpolation.AkimaSplineInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.TricubicInterpolatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.analysis.interpolation.TricubicInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.BicubicInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.analysis.interpolation.BicubicInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.PiecewiseBicubicSplineInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.analysis.interpolation.PiecewiseBicubicSplineInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.SplineInterpolatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.analysis.interpolation.SplineInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.DividedDifferenceInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.interpolation.DividedDifferenceInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.UnivariatePeriodicInterpolatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.analysis.interpolation.UnivariatePeriodicInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.LinearInterpolatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.analysis.interpolation.LinearInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.LoessInterpolatorTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.math4.analysis.interpolation.LoessInterpolatorTest
+[INFO] Running org.apache.commons.math4.analysis.interpolation.MicrosphereProjectionInterpolatorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.analysis.interpolation.MicrosphereProjectionInterpolatorTest
+[INFO] Running org.apache.commons.math4.filter.KalmanFilterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.filter.KalmanFilterTest
+[INFO] Running org.apache.commons.math4.stat.inference.GTestTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.inference.GTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.OneWayAnovaTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.stat.inference.OneWayAnovaTest
+[INFO] Running org.apache.commons.math4.stat.inference.KolmogorovSmirnovTestTest
+[WARNING] Tests run: 34, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 3.61 s - in org.apache.commons.math4.stat.inference.KolmogorovSmirnovTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.ChiSquareTestTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.inference.ChiSquareTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.MannWhitneyUTestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.commons.math4.stat.inference.MannWhitneyUTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.WilcoxonSignedRankTestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.inference.WilcoxonSignedRankTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.BinomialTestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.stat.inference.BinomialTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.TTestTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.inference.TTestTest
+[INFO] Running org.apache.commons.math4.stat.inference.InferenceTestUtilsTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.inference.InferenceTestUtilsTest
+[INFO] Running org.apache.commons.math4.stat.data.LewTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.data.LewTest
+[INFO] Running org.apache.commons.math4.stat.data.LotteryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.data.LotteryTest
+[INFO] Running org.apache.commons.math4.stat.StatUtilsTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.StatUtilsTest
+[INFO] Running org.apache.commons.math4.stat.interval.WilsonScoreIntervalTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.stat.interval.WilsonScoreIntervalTest
+[INFO] Running org.apache.commons.math4.stat.interval.IntervalUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.stat.interval.IntervalUtilsTest
+[INFO] Running org.apache.commons.math4.stat.interval.ClopperPearsonIntervalTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.interval.ClopperPearsonIntervalTest
+[INFO] Running org.apache.commons.math4.stat.interval.NormalApproximationIntervalTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.interval.NormalApproximationIntervalTest
+[INFO] Running org.apache.commons.math4.stat.interval.AgrestiCoullIntervalTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.interval.AgrestiCoullIntervalTest
+[INFO] Running org.apache.commons.math4.stat.CertifiedDataTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.stat.CertifiedDataTest
+[INFO] Running org.apache.commons.math4.stat.FrequencyTest
+AVH:outputstreaminit11007544
+AVH:write11007544
+AVH:tobytearray11007544
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.stat.FrequencyTest
+[INFO] Running org.apache.commons.math4.stat.ranking.NaturalRankingTest
+[WARNING] Tests run: 10, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 s - in org.apache.commons.math4.stat.ranking.NaturalRankingTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.SynchronizedMultivariateSummaryStatisticsTest
+AVH:outputstreaminit104021849
+AVH:write104021849
+AVH:tobytearray104021849
+AVH:outputstreaminit531048376
+AVH:write531048376
+AVH:tobytearray531048376
+AVH:outputstreaminit571106826
+AVH:write571106826
+AVH:tobytearray571106826
+AVH:outputstreaminit1490116220
+AVH:write1490116220
+AVH:tobytearray1490116220
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.math4.stat.descriptive.SynchronizedMultivariateSummaryStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.SynchronizedDescriptiveStatisticsTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.math4.stat.descriptive.SynchronizedDescriptiveStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.SummaryStatisticsTest
+AVH:outputstreaminit1241039373
+AVH:write1241039373
+AVH:tobytearray1241039373
+AVH:outputstreaminit100409786
+AVH:write100409786
+AVH:tobytearray100409786
+AVH:outputstreaminit1424508507
+AVH:write1424508507
+AVH:tobytearray1424508507
+AVH:outputstreaminit69909576
+AVH:write69909576
+AVH:tobytearray69909576
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.math4.stat.descriptive.SummaryStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.MixedListUnivariateImplTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.MixedListUnivariateImplTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.rank.MinTest
+AVH:outputstreaminit516823063
+AVH:write516823063
+AVH:tobytearray516823063
+AVH:outputstreaminit572436748
+AVH:write572436748
+AVH:tobytearray572436748
+AVH:outputstreaminit1936324
+AVH:write1936324
+AVH:tobytearray1936324
+AVH:outputstreaminit827503447
+AVH:write827503447
+AVH:tobytearray827503447
+AVH:outputstreaminit343218642
+AVH:write343218642
+AVH:tobytearray343218642
+AVH:outputstreaminit402615746
+AVH:write402615746
+AVH:tobytearray402615746
+AVH:outputstreaminit1051913361
+AVH:write1051913361
+AVH:tobytearray1051913361
+AVH:outputstreaminit2036318264
+AVH:write2036318264
+AVH:tobytearray2036318264
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.descriptive.rank.MinTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.rank.PercentileTest
+[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.math4.stat.descriptive.rank.PercentileTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.rank.MedianTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.stat.descriptive.rank.MedianTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.rank.PSquarePercentileTest
+AVH:outputstreaminit847997683
+AVH:write847997683
+AVH:tobytearray847997683
+AVH:outputstreaminit1606415977
+AVH:write1606415977
+AVH:tobytearray1606415977
+AVH:outputstreaminit1866758483
+AVH:write1866758483
+AVH:tobytearray1866758483
+AVH:outputstreaminit127509847
+AVH:write127509847
+AVH:tobytearray127509847
+AVH:outputstreaminit502782644
+AVH:write502782644
+AVH:tobytearray502782644
+AVH:outputstreaminit1918855624
+AVH:write1918855624
+AVH:tobytearray1918855624
+AVH:outputstreaminit1705695431
+AVH:write1705695431
+AVH:tobytearray1705695431
+AVH:outputstreaminit1940884683
+AVH:write1940884683
+AVH:tobytearray1940884683
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.597 s - in org.apache.commons.math4.stat.descriptive.rank.PSquarePercentileTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.rank.MaxTest
+AVH:outputstreaminit1530734998
+AVH:write1530734998
+AVH:tobytearray1530734998
+AVH:outputstreaminit1342798388
+AVH:write1342798388
+AVH:tobytearray1342798388
+AVH:outputstreaminit855063957
+AVH:write855063957
+AVH:tobytearray855063957
+AVH:outputstreaminit1280296586
+AVH:write1280296586
+AVH:tobytearray1280296586
+AVH:outputstreaminit1309230847
+AVH:write1309230847
+AVH:tobytearray1309230847
+AVH:outputstreaminit1857094254
+AVH:write1857094254
+AVH:tobytearray1857094254
+AVH:outputstreaminit631927839
+AVH:write631927839
+AVH:tobytearray631927839
+AVH:outputstreaminit680193586
+AVH:write680193586
+AVH:tobytearray680193586
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.rank.MaxTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.AggregateSummaryStatisticsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.stat.descriptive.AggregateSummaryStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.DescriptiveStatisticsTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.stat.descriptive.DescriptiveStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.StatisticalSummaryValuesTest
+AVH:outputstreaminit301490941
+AVH:write301490941
+AVH:tobytearray301490941
+AVH:outputstreaminit1254576854
+AVH:write1254576854
+AVH:tobytearray1254576854
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.stat.descriptive.StatisticalSummaryValuesTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.SynchronizedSummaryStatisticsTest
+AVH:outputstreaminit1323791414
+AVH:write1323791414
+AVH:tobytearray1323791414
+AVH:outputstreaminit1206968626
+AVH:write1206968626
+AVH:tobytearray1206968626
+AVH:outputstreaminit1772286941
+AVH:write1772286941
+AVH:tobytearray1772286941
+AVH:outputstreaminit2125405309
+AVH:write2125405309
+AVH:tobytearray2125405309
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.SynchronizedSummaryStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.summary.ProductTest
+AVH:outputstreaminit380047492
+AVH:write380047492
+AVH:tobytearray380047492
+AVH:outputstreaminit1658502579
+AVH:write1658502579
+AVH:tobytearray1658502579
+AVH:outputstreaminit460366307
+AVH:write460366307
+AVH:tobytearray460366307
+AVH:outputstreaminit2058570870
+AVH:write2058570870
+AVH:tobytearray2058570870
+AVH:outputstreaminit430289988
+AVH:write430289988
+AVH:tobytearray430289988
+AVH:outputstreaminit1652268157
+AVH:write1652268157
+AVH:tobytearray1652268157
+AVH:outputstreaminit1766564627
+AVH:write1766564627
+AVH:tobytearray1766564627
+AVH:outputstreaminit238486665
+AVH:write238486665
+AVH:tobytearray238486665
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.stat.descriptive.summary.ProductTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.summary.SumLogTest
+AVH:outputstreaminit267394822
+AVH:write267394822
+AVH:tobytearray267394822
+AVH:outputstreaminit2106606003
+AVH:write2106606003
+AVH:tobytearray2106606003
+AVH:outputstreaminit44841254
+AVH:write44841254
+AVH:tobytearray44841254
+AVH:outputstreaminit280204815
+AVH:write280204815
+AVH:tobytearray280204815
+AVH:outputstreaminit1584763132
+AVH:write1584763132
+AVH:tobytearray1584763132
+AVH:outputstreaminit1825455288
+AVH:write1825455288
+AVH:tobytearray1825455288
+AVH:outputstreaminit1294456121
+AVH:write1294456121
+AVH:tobytearray1294456121
+AVH:outputstreaminit226072617
+AVH:write226072617
+AVH:tobytearray226072617
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.summary.SumLogTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.summary.SumTest
+AVH:outputstreaminit1650792943
+AVH:write1650792943
+AVH:tobytearray1650792943
+AVH:outputstreaminit1454284594
+AVH:write1454284594
+AVH:tobytearray1454284594
+AVH:outputstreaminit957742929
+AVH:write957742929
+AVH:tobytearray957742929
+AVH:outputstreaminit1531887395
+AVH:write1531887395
+AVH:tobytearray1531887395
+AVH:outputstreaminit1165582726
+AVH:write1165582726
+AVH:tobytearray1165582726
+AVH:outputstreaminit1503524468
+AVH:write1503524468
+AVH:tobytearray1503524468
+AVH:outputstreaminit163469041
+AVH:write163469041
+AVH:tobytearray163469041
+AVH:outputstreaminit1478961722
+AVH:write1478961722
+AVH:tobytearray1478961722
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.stat.descriptive.summary.SumTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.summary.SumSqTest
+AVH:outputstreaminit1880177599
+AVH:write1880177599
+AVH:tobytearray1880177599
+AVH:outputstreaminit1442959476
+AVH:write1442959476
+AVH:tobytearray1442959476
+AVH:outputstreaminit1154384714
+AVH:write1154384714
+AVH:tobytearray1154384714
+AVH:outputstreaminit1459119309
+AVH:write1459119309
+AVH:tobytearray1459119309
+AVH:outputstreaminit646355809
+AVH:write646355809
+AVH:tobytearray646355809
+AVH:outputstreaminit507206309
+AVH:write507206309
+AVH:tobytearray507206309
+AVH:outputstreaminit1497709728
+AVH:write1497709728
+AVH:tobytearray1497709728
+AVH:outputstreaminit1393388290
+AVH:write1393388290
+AVH:tobytearray1393388290
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.descriptive.summary.SumSqTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.VarianceTest
+AVH:outputstreaminit1608876517
+AVH:write1608876517
+AVH:tobytearray1608876517
+AVH:outputstreaminit1969827877
+AVH:write1969827877
+AVH:tobytearray1969827877
+AVH:outputstreaminit321729228
+AVH:write321729228
+AVH:tobytearray321729228
+AVH:outputstreaminit1250908805
+AVH:write1250908805
+AVH:tobytearray1250908805
+AVH:outputstreaminit148596089
+AVH:write148596089
+AVH:tobytearray148596089
+AVH:outputstreaminit10855381
+AVH:write10855381
+AVH:tobytearray10855381
+AVH:outputstreaminit1492851477
+AVH:write1492851477
+AVH:tobytearray1492851477
+AVH:outputstreaminit1337454137
+AVH:write1337454137
+AVH:tobytearray1337454137
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.stat.descriptive.moment.VarianceTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.VectorialMeanTest
+AVH:outputstreaminit726542804
+AVH:write726542804
+AVH:tobytearray726542804
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.stat.descriptive.moment.VectorialMeanTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.GeometricMeanTest
+AVH:outputstreaminit283241429
+AVH:write283241429
+AVH:tobytearray283241429
+AVH:outputstreaminit1035795680
+AVH:write1035795680
+AVH:tobytearray1035795680
+AVH:outputstreaminit356023140
+AVH:write356023140
+AVH:tobytearray356023140
+AVH:outputstreaminit1006497230
+AVH:write1006497230
+AVH:tobytearray1006497230
+AVH:outputstreaminit336846322
+AVH:write336846322
+AVH:tobytearray336846322
+AVH:outputstreaminit1144997978
+AVH:write1144997978
+AVH:tobytearray1144997978
+AVH:outputstreaminit1324283601
+AVH:write1324283601
+AVH:tobytearray1324283601
+AVH:outputstreaminit1275534062
+AVH:write1275534062
+AVH:tobytearray1275534062
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.stat.descriptive.moment.GeometricMeanTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.StandardDeviationTest
+AVH:outputstreaminit231115804
+AVH:write231115804
+AVH:tobytearray231115804
+AVH:outputstreaminit749890440
+AVH:write749890440
+AVH:tobytearray749890440
+AVH:outputstreaminit1316776641
+AVH:write1316776641
+AVH:tobytearray1316776641
+AVH:outputstreaminit115418401
+AVH:write115418401
+AVH:tobytearray115418401
+AVH:outputstreaminit1873026142
+AVH:write1873026142
+AVH:tobytearray1873026142
+AVH:outputstreaminit247764454
+AVH:write247764454
+AVH:tobytearray247764454
+AVH:outputstreaminit1792428317
+AVH:write1792428317
+AVH:tobytearray1792428317
+AVH:outputstreaminit674579570
+AVH:write674579570
+AVH:tobytearray674579570
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.stat.descriptive.moment.StandardDeviationTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.SemiVarianceTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.math4.stat.descriptive.moment.SemiVarianceTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.KurtosisTest
+AVH:outputstreaminit32649461
+AVH:write32649461
+AVH:tobytearray32649461
+AVH:outputstreaminit1254726791
+AVH:write1254726791
+AVH:tobytearray1254726791
+AVH:outputstreaminit1245779269
+AVH:write1245779269
+AVH:tobytearray1245779269
+AVH:outputstreaminit932198738
+AVH:write932198738
+AVH:tobytearray932198738
+AVH:outputstreaminit787952084
+AVH:write787952084
+AVH:tobytearray787952084
+AVH:outputstreaminit1873335165
+AVH:write1873335165
+AVH:tobytearray1873335165
+AVH:outputstreaminit1636767336
+AVH:write1636767336
+AVH:tobytearray1636767336
+AVH:outputstreaminit769686928
+AVH:write769686928
+AVH:tobytearray769686928
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.stat.descriptive.moment.KurtosisTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.MeanTest
+AVH:outputstreaminit952699520
+AVH:write952699520
+AVH:tobytearray952699520
+AVH:outputstreaminit255955703
+AVH:write255955703
+AVH:tobytearray255955703
+AVH:outputstreaminit2021468968
+AVH:write2021468968
+AVH:tobytearray2021468968
+AVH:outputstreaminit42922777
+AVH:write42922777
+AVH:tobytearray42922777
+AVH:outputstreaminit128346373
+AVH:write128346373
+AVH:tobytearray128346373
+AVH:outputstreaminit1215462707
+AVH:write1215462707
+AVH:tobytearray1215462707
+AVH:outputstreaminit544824274
+AVH:write544824274
+AVH:tobytearray544824274
+AVH:outputstreaminit1316764933
+AVH:write1316764933
+AVH:tobytearray1316764933
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.moment.MeanTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.FirstMomentTest
+AVH:outputstreaminit1924639003
+AVH:write1924639003
+AVH:tobytearray1924639003
+AVH:outputstreaminit1823293854
+AVH:write1823293854
+AVH:tobytearray1823293854
+AVH:outputstreaminit479244840
+AVH:write479244840
+AVH:tobytearray479244840
+AVH:outputstreaminit127849421
+AVH:write127849421
+AVH:tobytearray127849421
+AVH:outputstreaminit900390648
+AVH:write900390648
+AVH:tobytearray900390648
+AVH:outputstreaminit1987654264
+AVH:write1987654264
+AVH:tobytearray1987654264
+AVH:outputstreaminit586273408
+AVH:write586273408
+AVH:tobytearray586273408
+AVH:outputstreaminit62300798
+AVH:write62300798
+AVH:tobytearray62300798
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.stat.descriptive.moment.FirstMomentTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.SecondMomentTest
+AVH:outputstreaminit1999647336
+AVH:write1999647336
+AVH:tobytearray1999647336
+AVH:outputstreaminit799187337
+AVH:write799187337
+AVH:tobytearray799187337
+AVH:outputstreaminit1044455058
+AVH:write1044455058
+AVH:tobytearray1044455058
+AVH:outputstreaminit256365677
+AVH:write256365677
+AVH:tobytearray256365677
+AVH:outputstreaminit1224105789
+AVH:write1224105789
+AVH:tobytearray1224105789
+AVH:outputstreaminit594424778
+AVH:write594424778
+AVH:tobytearray594424778
+AVH:outputstreaminit1394164977
+AVH:write1394164977
+AVH:tobytearray1394164977
+AVH:outputstreaminit464636165
+AVH:write464636165
+AVH:tobytearray464636165
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.stat.descriptive.moment.SecondMomentTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.FourthMomentTest
+AVH:outputstreaminit1959467950
+AVH:write1959467950
+AVH:tobytearray1959467950
+AVH:outputstreaminit986893157
+AVH:write986893157
+AVH:tobytearray986893157
+AVH:outputstreaminit289826678
+AVH:write289826678
+AVH:tobytearray289826678
+AVH:outputstreaminit2062339449
+AVH:write2062339449
+AVH:tobytearray2062339449
+AVH:outputstreaminit777011267
+AVH:write777011267
+AVH:tobytearray777011267
+AVH:outputstreaminit207401952
+AVH:write207401952
+AVH:tobytearray207401952
+AVH:outputstreaminit135035702
+AVH:write135035702
+AVH:tobytearray135035702
+AVH:outputstreaminit201312827
+AVH:write201312827
+AVH:tobytearray201312827
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.stat.descriptive.moment.FourthMomentTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.VectorialCovarianceTest
+AVH:outputstreaminit455420666
+AVH:write455420666
+AVH:tobytearray455420666
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.stat.descriptive.moment.VectorialCovarianceTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.ThirdMomentTest
+AVH:outputstreaminit280135706
+AVH:write280135706
+AVH:tobytearray280135706
+AVH:outputstreaminit1717851471
+AVH:write1717851471
+AVH:tobytearray1717851471
+AVH:outputstreaminit2092661102
+AVH:write2092661102
+AVH:tobytearray2092661102
+AVH:outputstreaminit355095396
+AVH:write355095396
+AVH:tobytearray355095396
+AVH:outputstreaminit1533747018
+AVH:write1533747018
+AVH:tobytearray1533747018
+AVH:outputstreaminit413753964
+AVH:write413753964
+AVH:tobytearray413753964
+AVH:outputstreaminit2093085541
+AVH:write2093085541
+AVH:tobytearray2093085541
+AVH:outputstreaminit1171972715
+AVH:write1171972715
+AVH:tobytearray1171972715
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.stat.descriptive.moment.ThirdMomentTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.InteractionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.stat.descriptive.moment.InteractionTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.moment.SkewnessTest
+AVH:outputstreaminit436124168
+AVH:write436124168
+AVH:tobytearray436124168
+AVH:outputstreaminit67232757
+AVH:write67232757
+AVH:tobytearray67232757
+AVH:outputstreaminit706899593
+AVH:write706899593
+AVH:tobytearray706899593
+AVH:outputstreaminit1228575281
+AVH:write1228575281
+AVH:tobytearray1228575281
+AVH:outputstreaminit1170549559
+AVH:write1170549559
+AVH:tobytearray1170549559
+AVH:outputstreaminit219041258
+AVH:write219041258
+AVH:tobytearray219041258
+AVH:outputstreaminit538602540
+AVH:write538602540
+AVH:tobytearray538602540
+AVH:outputstreaminit1971189236
+AVH:write1971189236
+AVH:tobytearray1971189236
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.stat.descriptive.moment.SkewnessTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.MultivariateSummaryStatisticsTest
+AVH:outputstreaminit1569018961
+AVH:write1569018961
+AVH:tobytearray1569018961
+AVH:outputstreaminit1306445677
+AVH:write1306445677
+AVH:tobytearray1306445677
+AVH:outputstreaminit583207175
+AVH:write583207175
+AVH:tobytearray583207175
+AVH:outputstreaminit604552763
+AVH:write604552763
+AVH:tobytearray604552763
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.stat.descriptive.MultivariateSummaryStatisticsTest
+[INFO] Running org.apache.commons.math4.stat.descriptive.ListUnivariateImplTest
+AVH:outputstreaminit1281709223
+AVH:write1281709223
+AVH:tobytearray1281709223
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.descriptive.ListUnivariateImplTest
+[INFO] Running org.apache.commons.math4.stat.correlation.CovarianceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.correlation.CovarianceTest
+[INFO] Running org.apache.commons.math4.stat.correlation.SpearmansRankCorrelationTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.stat.correlation.SpearmansRankCorrelationTest
+[INFO] Running org.apache.commons.math4.stat.correlation.KendallsCorrelationTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 s - in org.apache.commons.math4.stat.correlation.KendallsCorrelationTest
+[INFO] Running org.apache.commons.math4.stat.correlation.StorelessCovarianceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.stat.correlation.StorelessCovarianceTest
+[INFO] Running org.apache.commons.math4.stat.correlation.PearsonsCorrelationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.stat.correlation.PearsonsCorrelationTest
+[INFO] Running org.apache.commons.math4.stat.regression.SimpleRegressionTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.stat.regression.SimpleRegressionTest
+[INFO] Running org.apache.commons.math4.stat.regression.MillerUpdatingRegressionTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.math4.stat.regression.MillerUpdatingRegressionTest
+[INFO] Running org.apache.commons.math4.stat.regression.GLSMultipleLinearRegressionTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.691 s - in org.apache.commons.math4.stat.regression.GLSMultipleLinearRegressionTest
+[INFO] Running org.apache.commons.math4.stat.regression.OLSMultipleLinearRegressionTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.stat.regression.OLSMultipleLinearRegressionTest
+[INFO] Running org.apache.commons.math4.optim.SimpleValueCheckerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.optim.SimpleValueCheckerTest
+[INFO] Running org.apache.commons.math4.optim.linear.SimplexTableauTest
+AVH:outputstreaminit328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:write328340841
+AVH:tobytearray328340841
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.optim.linear.SimplexTableauTest
+[INFO] Running org.apache.commons.math4.optim.linear.SimplexSolverTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.math4.optim.linear.SimplexSolverTest
+[INFO] Running org.apache.commons.math4.optim.PointValuePairTest
+AVH:outputstreaminit1520883772
+AVH:write1520883772
+AVH:tobytearray1520883772
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.optim.PointValuePairTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizerTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.math4.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.MultivariateFunctionMappingAdapterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.math4.optim.nonlinear.scalar.MultivariateFunctionMappingAdapterTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.MultivariateFunctionPenaltyAdapterTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.optim.nonlinear.scalar.MultivariateFunctionPenaltyAdapterTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.623 s - in org.apache.commons.math4.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.noderiv.BOBYQAOptimizerTest
+[WARNING] Tests run: 19, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.276 s - in org.apache.commons.math4.optim.nonlinear.scalar.noderiv.BOBYQAOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest
+[WARNING] Tests run: 23, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0.044 s - in org.apache.commons.math4.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest
+[WARNING] Tests run: 20, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.058 s - in org.apache.commons.math4.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.noderiv.PowellOptimizerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.optim.nonlinear.scalar.noderiv.PowellOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.nonlinear.scalar.MultiStartMultivariateOptimizerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.optim.nonlinear.scalar.MultiStartMultivariateOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.univariate.MultiStartUnivariateOptimizerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.optim.univariate.MultiStartUnivariateOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.univariate.BracketFinderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.optim.univariate.BracketFinderTest
+[INFO] Running org.apache.commons.math4.optim.univariate.BrentOptimizerTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.optim.univariate.BrentOptimizerTest
+[INFO] Running org.apache.commons.math4.optim.univariate.SimpleUnivariateValueCheckerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.optim.univariate.SimpleUnivariateValueCheckerTest
+[INFO] Running org.apache.commons.math4.optim.PointVectorValuePairTest
+AVH:outputstreaminit1865977628
+AVH:write1865977628
+AVH:tobytearray1865977628
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.optim.PointVectorValuePairTest
+[INFO] Running org.apache.commons.math4.optim.SimplePointCheckerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.optim.SimplePointCheckerTest
+[INFO] Running org.apache.commons.math4.optim.SimpleVectorValueCheckerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.optim.SimpleVectorValueCheckerTest
+[INFO] Running org.apache.commons.math4.complex.FrenchComplexFormatTest
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.math4.complex.FrenchComplexFormatTest
+[INFO] Running org.apache.commons.math4.complex.ComplexFormatTest
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.complex.ComplexFormatTest
+[INFO] Running org.apache.commons.math4.util.BigRealFieldTest
+AVH:outputstreaminit1773326333
+AVH:write1773326333
+AVH:tobytearray1773326333
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.util.BigRealFieldTest
+[INFO] Running org.apache.commons.math4.util.MathArraysTest
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.math4.util.MathArraysTest
+[INFO] Running org.apache.commons.math4.util.PairTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.util.PairTest
+[INFO] Running org.apache.commons.math4.util.MathUtilsTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.util.MathUtilsTest
+[INFO] Running org.apache.commons.math4.util.Decimal64Test
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.util.Decimal64Test
+[INFO] Running org.apache.commons.math4.util.IntegerSequenceTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.util.IntegerSequenceTest
+[INFO] Running org.apache.commons.math4.util.KthSelectorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.262 s - in org.apache.commons.math4.util.KthSelectorTest
+[INFO] Running org.apache.commons.math4.util.TransformerMapTest
+AVH:outputstreaminit1601260161
+AVH:write1601260161
+AVH:tobytearray1601260161
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.util.TransformerMapTest
+[INFO] Running org.apache.commons.math4.util.OpenIntToDoubleHashMapTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.math4.util.OpenIntToDoubleHashMapTest
+[INFO] Running org.apache.commons.math4.util.DefaultTransformerTest
+AVH:outputstreaminit780799120
+AVH:write780799120
+AVH:tobytearray780799120
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.util.DefaultTransformerTest
+[INFO] Running org.apache.commons.math4.util.FastMathStrictComparisonTest
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.math4.util.FastMathStrictComparisonTest
+[INFO] Running org.apache.commons.math4.util.OpenIntToFieldTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.math4.util.OpenIntToFieldTest
+[INFO] Running org.apache.commons.math4.util.CombinatoricsUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.util.CombinatoricsUtilsTest
+[INFO] Running org.apache.commons.math4.util.FastMathTest
+[WARNING] Tests run: 72, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 4.889 s - in org.apache.commons.math4.util.FastMathTest
+[INFO] Running org.apache.commons.math4.util.BigRealTest
+AVH:outputstreaminit1000892717
+AVH:write1000892717
+AVH:tobytearray1000892717
+AVH:outputstreaminit1512462366
+AVH:write1512462366
+AVH:tobytearray1512462366
+AVH:outputstreaminit212113887
+AVH:write212113887
+AVH:tobytearray212113887
+AVH:outputstreaminit459157420
+AVH:write459157420
+AVH:tobytearray459157420
+AVH:outputstreaminit665020783
+AVH:write665020783
+AVH:tobytearray665020783
+AVH:outputstreaminit318711994
+AVH:write318711994
+AVH:tobytearray318711994
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.util.BigRealTest
+[INFO] Running org.apache.commons.math4.util.ResizableDoubleArrayTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.util.ResizableDoubleArrayTest
+[INFO] Running org.apache.commons.math4.distribution.EnumeratedRealDistributionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.math4.distribution.EnumeratedRealDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.EnumeratedIntegerDistributionTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.math4.distribution.EnumeratedIntegerDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.fitting.MultivariateNormalMixtureExpectationMaximizationTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.math4.distribution.fitting.MultivariateNormalMixtureExpectationMaximizationTest
+[INFO] Running org.apache.commons.math4.distribution.AbstractRealDistributionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.math4.distribution.AbstractRealDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.AbstractIntegerDistributionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.distribution.AbstractIntegerDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.EmpiricalDistributionTest
+AVH:outputstreaminit2139382581
+AVH:write2139382581
+AVH:tobytearray2139382581
+AVH:outputstreaminit122674815
+AVH:write122674815
+AVH:tobytearray122674815
+AVH:outputstreaminit982739209
+AVH:write982739209
+AVH:tobytearray982739209
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.distribution.RealDistributionAbstractTest.deepClone(RealDistributionAbstractTest.java:505). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.distribution.RealDistributionAbstractTest.deepClone(RealDistributionAbstractTest.java:505)
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.361 s - in org.apache.commons.math4.distribution.EmpiricalDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.MultivariateNormalDistributionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in org.apache.commons.math4.distribution.MultivariateNormalDistributionTest
+[INFO] Running org.apache.commons.math4.distribution.MixtureMultivariateNormalDistributionTest
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.math4.distribution.MixtureMultivariateNormalDistributionTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.HighamHall54StepInterpolatorTest
+AVH:outputstreaminit2136035851
+AVH:write2136035851
+AVH:tobytearray2136035851
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.HighamHall54StepInterpolatorTest.serialization(HighamHall54StepInterpolatorTest.java:86). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.HighamHall54StepInterpolatorTest.serialization(HighamHall54StepInterpolatorTest.java:86)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.apache.commons.math4.ode.nonstiff.HighamHall54StepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.EulerFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.ode.nonstiff.EulerFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.EulerStepInterpolatorTest
+AVH:outputstreaminit33507270
+AVH:write33507270
+AVH:tobytearray33507270
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.EulerStepInterpolatorTest.serialization(EulerStepInterpolatorTest.java:162). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.EulerStepInterpolatorTest.serialization(EulerStepInterpolatorTest.java:162)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.math4.ode.nonstiff.EulerStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaStepInterpolatorTest
+AVH:outputstreaminit895382463
+AVH:write895382463
+AVH:tobytearray895382463
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaStepInterpolatorTest.serialization(ClassicalRungeKuttaStepInterpolatorTest.java:74). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaStepInterpolatorTest.serialization(ClassicalRungeKuttaStepInterpolatorTest.java:74)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince54StepInterpolatorTest
+AVH:outputstreaminit2094805249
+AVH:write2094805249
+AVH:tobytearray2094805249
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.DormandPrince54StepInterpolatorTest.serialization(DormandPrince54StepInterpolatorTest.java:86). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.DormandPrince54StepInterpolatorTest.serialization(DormandPrince54StepInterpolatorTest.java:86)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince54StepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.AdamsMoultonFieldIntegratorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.256 s - in org.apache.commons.math4.ode.nonstiff.AdamsMoultonFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.AdamsBashforthIntegratorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.math4.ode.nonstiff.AdamsBashforthIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince853FieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince853FieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GillFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.37 s - in org.apache.commons.math4.ode.nonstiff.GillFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.LutherFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.math4.ode.nonstiff.LutherFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.MidpointStepInterpolatorTest
+AVH:outputstreaminit948732377
+AVH:write948732377
+AVH:tobytearray948732377
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.MidpointStepInterpolatorTest.serialization(MidpointStepInterpolatorTest.java:75). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.MidpointStepInterpolatorTest.serialization(MidpointStepInterpolatorTest.java:75)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.math4.ode.nonstiff.MidpointStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.EulerIntegratorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.math4.ode.nonstiff.EulerIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.MidpointFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 s - in org.apache.commons.math4.ode.nonstiff.MidpointFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ThreeEighthesStepInterpolatorTest
+AVH:outputstreaminit2076308438
+AVH:write2076308438
+AVH:tobytearray2076308438
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.ThreeEighthesStepInterpolatorTest.serialization(ThreeEighthesStepInterpolatorTest.java:74). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.ThreeEighthesStepInterpolatorTest.serialization(ThreeEighthesStepInterpolatorTest.java:74)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.math4.ode.nonstiff.ThreeEighthesStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 s - in org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.AdamsBashforthFieldIntegratorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.285 s - in org.apache.commons.math4.ode.nonstiff.AdamsBashforthFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.HighamHall54IntegratorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.math4.ode.nonstiff.HighamHall54IntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerStepInterpolatorTest
+AVH:outputstreaminit290786813
+AVH:write290786813
+AVH:tobytearray290786813
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerStepInterpolatorTest.serialization(GraggBulirschStoerStepInterpolatorTest.java:88). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerStepInterpolatorTest.serialization(GraggBulirschStoerStepInterpolatorTest.java:88)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ClassicalRungKuttaFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ode.nonstiff.ClassicalRungKuttaFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.EulerFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.math4.ode.nonstiff.EulerFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.LutherFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.381 s - in org.apache.commons.math4.ode.nonstiff.LutherFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.AdamsMoultonIntegratorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.math4.ode.nonstiff.AdamsMoultonIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince54FieldIntegratorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince54FieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaIntegratorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.math4.ode.nonstiff.ClassicalRungeKuttaIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ThreeEighthesFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.ode.nonstiff.ThreeEighthesFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ThreeEighthesIntegratorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.math4.ode.nonstiff.ThreeEighthesIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.LutherIntegratorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.math4.ode.nonstiff.LutherIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.ThreeEighthesFieldIntegratorTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 s - in org.apache.commons.math4.ode.nonstiff.ThreeEighthesFieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.MidpointIntegratorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.math4.ode.nonstiff.MidpointIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince853IntegratorTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince853IntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince853FieldIntegratorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince853FieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.HighamHall54FieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ode.nonstiff.HighamHall54FieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.HighamHall54FieldIntegratorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.math4.ode.nonstiff.HighamHall54FieldIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.MidpointFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ode.nonstiff.MidpointFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GillFieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.math4.ode.nonstiff.GillFieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerIntegratorTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.math4.ode.nonstiff.GraggBulirschStoerIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GillIntegratorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.math4.ode.nonstiff.GillIntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince54IntegratorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince54IntegratorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.GillStepInterpolatorTest
+AVH:outputstreaminit720418041
+AVH:write720418041
+AVH:tobytearray720418041
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.GillStepInterpolatorTest.serialization(GillStepInterpolatorTest.java:74). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.GillStepInterpolatorTest.serialization(GillStepInterpolatorTest.java:74)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.math4.ode.nonstiff.GillStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince853StepInterpolatorTest
+AVH:outputstreaminit498477676
+AVH:write498477676
+AVH:tobytearray498477676
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.DormandPrince853StepInterpolatorTest.serialization(DormandPrince853StepInterpolatorTest.java:86). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.DormandPrince853StepInterpolatorTest.serialization(DormandPrince853StepInterpolatorTest.java:86)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince853StepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.AdamsNordsieckTransformerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ode.nonstiff.AdamsNordsieckTransformerTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.LutherStepInterpolatorTest
+AVH:outputstreaminit1285415141
+AVH:write1285415141
+AVH:tobytearray1285415141
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.nonstiff.LutherStepInterpolatorTest.serialization(LutherStepInterpolatorTest.java:74). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.nonstiff.LutherStepInterpolatorTest.serialization(LutherStepInterpolatorTest.java:74)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.math4.ode.nonstiff.LutherStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.nonstiff.DormandPrince54FieldStepInterpolatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ode.nonstiff.DormandPrince54FieldStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.FirstOrderConverterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.math4.ode.FirstOrderConverterTest
+[INFO] Running org.apache.commons.math4.ode.ContinuousOutputFieldModelTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.math4.ode.ContinuousOutputFieldModelTest
+[INFO] Running org.apache.commons.math4.ode.sampling.StepNormalizerOutputOverlapTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.ode.sampling.StepNormalizerOutputOverlapTest
+[INFO] Running org.apache.commons.math4.ode.sampling.NordsieckStepInterpolatorTest
+AVH:outputstreaminit1657944512
+AVH:write1657944512
+AVH:tobytearray1657944512
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.sampling.NordsieckStepInterpolatorTest.serialization(NordsieckStepInterpolatorTest.java:72). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.sampling.NordsieckStepInterpolatorTest.serialization(NordsieckStepInterpolatorTest.java:72)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.math4.ode.sampling.NordsieckStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.sampling.DummyStepInterpolatorTest
+AVH:outputstreaminit547101703
+AVH:write547101703
+AVH:tobytearray547101703
+Specification ByteArrayOutputStream_FlushBeforeRetrieve has been violated on line org.apache.commons.math4.ode.sampling.DummyStepInterpolatorTest.testSerialization(DummyStepInterpolatorTest.java:90). Documentation for this property can be found at http://runtimeverification.com/monitor/annotated-java/__properties/html/mop/ByteArrayOutputStream_FlushBeforeRetrieve.html
+flush() or close() should be invoked before toByteArray() or toString() to get the complete contents.org.apache.commons.math4.ode.sampling.DummyStepInterpolatorTest.testSerialization(DummyStepInterpolatorTest.java:90)
+AVH:outputstreaminit1442281638
+AVH:write1442281638
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.math4.ode.sampling.DummyStepInterpolatorTest
+[INFO] Running org.apache.commons.math4.ode.sampling.StepNormalizerOutputTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.math4.ode.sampling.StepNormalizerOutputTest
+[INFO] Running org.apache.commons.math4.ode.sampling.StepNormalizerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.math4.ode.sampling.StepNormalizerTest
+[INFO] Running org.apache.commons.math4.ode.JacobianMatricesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.854 s - in org.apache.commons.math4.ode.JacobianMatricesTest
+[INFO] Running org.apache.commons.math4.ode.FieldExpandableODETest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.ode.FieldExpandableODETest
+[INFO] Running org.apache.commons.math4.ode.ContinuousOutputModelTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.math4.ode.ContinuousOutputModelTest
+[INFO] Running org.apache.commons.math4.ode.events.CloseEventsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.ode.events.CloseEventsTest
+[INFO] Running org.apache.commons.math4.ode.events.EventFilterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.apache.commons.math4.ode.events.EventFilterTest
+[INFO] Running org.apache.commons.math4.ode.events.EventStateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.math4.ode.events.EventStateTest
+[INFO] Running org.apache.commons.math4.ode.events.ReappearingEventTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.math4.ode.events.ReappearingEventTest
+[INFO] Running org.apache.commons.math4.ode.events.OverlappingEventsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.math4.ode.events.OverlappingEventsTest
+[INFO] Running org.apache.commons.math4.special.BesselJTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.math4.special.BesselJTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 4151, Failures: 0, Errors: 0, Skipped: 46
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:09 min
+[INFO] Finished at: 2020-10-28T00:18:42+00:00
+[INFO] Final Memory: 46M/1063M
+[INFO] ------------------------------------------------------------------------
