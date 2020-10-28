@@ -1,0 +1,56 @@
+package mop;
+
+import java.io.*;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging;
+import com.runtimeverification.rvmonitor.java.rt.RVMLogging.Level;
+ByteArrayOutputStream_FlushBeforeRetrieve(ByteArrayOutputStream b, OutputStream o) {
+	creation event outputstreaminit(ByteArrayOutputStream b, OutputStream o){
+		System.out.println("AVH:outputstreaminit" + System.identityHashCode(this));
+	}
+	event write(OutputStream o){
+		System.out.println("AVH:write" + System.identityHashCode(this));
+	}
+	event flush(OutputStream o){
+		System.out.println("AVH:flush" + System.identityHashCode(this));
+	}
+	event close(OutputStream o){
+		System.out.println("AVH:close" + System.identityHashCode(this));
+	}
+	event tobytearray(ByteArrayOutputStream b){
+		System.out.println("AVH:tobytearray" + System.identityHashCode(this));
+	}
+	event tostring(ByteArrayOutputStream b){
+		System.out.println("AVH:tostring" + System.identityHashCode(this));
+	}
+	fsm:
+	initial [
+	outputstreaminit -> outputstreamcreated
+	]
+	outputstreamcreated [
+	write -> writing
+	flush -> flushed
+	close -> closed
+	]
+	writing [
+	write -> writing
+	flush -> flushed
+	close -> closed
+	]
+	flushed [
+	flush -> flushed
+	write -> writing
+	tobytearray -> flushed
+	tostring -> flushed
+	close -> closed
+	]
+	closed [
+	tobytearray -> closed
+	tostring -> closed
+	]
+
+	@fail
+	{
+		RVMLogging.out.println(Level.CRITICAL, __DEFAULT_MESSAGE);
+		RVMLogging.out.println(Level.CRITICAL, "flush() or close() should be invoked before toByteArray() or toString() to get the complete contents." + __LOC);
+	}
+}
