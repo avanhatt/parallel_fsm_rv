@@ -1,6 +1,7 @@
 #![allow(non_camel_case_types)]
 
 pub mod byte_array_output_stream_flush;
+pub mod utils;
 
 // Strum contains all the trait definitions
 extern crate strum;
@@ -29,7 +30,8 @@ fn main() {
 
   // Get a path string to parse a program.
   let path = matches.value_of("INPUT").unwrap();
-  let trace = read_lines(path).expect("Failed to read the input file.");
+  let lines = read_lines(path).expect("Failed to read the input file.");
+  let trace = utils::to_trace(lines);
   byte_array_output_stream_flush::match_trace(trace);
 }
 
