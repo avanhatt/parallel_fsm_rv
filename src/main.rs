@@ -7,9 +7,6 @@ pub mod utils;
 extern crate strum;
 extern crate strum_macros;
 
-#[cfg(target_arch = "x86_64")]
-use core::arch::x86_64::*;
-
 extern crate clap;
 use clap::{Arg, App};
 
@@ -40,7 +37,10 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+  use crate::utils::*;
   use rust_fsm::*;
+  #[cfg(target_arch = "x86_64")]
+  use core::arch::x86_64::*;
 
   // Example RV traffic light spec using Rust's FSM library
   state_machine! {
@@ -76,13 +76,16 @@ mod tests {
 
 // pub unsafe fn _mm_shuffle_epi8(a: __m128i, b: __m128i) -> __m128i
   #[test]
+  #[cfg(target_arch = "x86_64")]
   fn test_simd() {
     unsafe {
-      let a = core::arch::x86_64::_mm_set_epi8(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-      let b = core::arch::x86_64::_mm_set_epi8(0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7);
-      let c : core::arch::x86_64::__m128i = core::arch::x86_64::_mm_shuffle_epi8(a, b);
+      let a = _mm_set_epi8(10, 11, 12, 13, 14, 15, 16, 17,
+                                               18, 19, 20, 21, 22, 23, 24, 25);
+      // let b = core::arch::x86_64::_mm_set_epi8(1, 1, 1, 1, 1, 1, 1, 1,1, 1, 1, 1, 1, 1, 1, 1);
+      let b = shuffle_mask([0, 1, 2, 3, 4, 5, 6, 7].to_vec());
+      let c : __m128i = _mm_shuffle_epi8(a, b);
       let mut mem : [u8; 16] = [0; 16];
-      core::arch::x86_64::_mm_storeu_si128(
+      _mm_storeu_si128(
         mem.as_mut_ptr() as *mut _,
         c,
       );
