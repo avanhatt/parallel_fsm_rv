@@ -1,4 +1,5 @@
 use rust_fsm::*;
+use crate::utils::*;
 
 state_machine! {
   derive(Debug)
@@ -44,6 +45,59 @@ state_machine! {
       outputstreaminit => violation,
   },
 }
+
+const VIOLATION : State = 0;
+const INITIAL : State = 1;
+const OUTPUTSTREAMCEATED : State  = 2;
+const WRITING : State = 3;
+const FLUSHED : State = 4;
+const CLOSED : State = 5;
+
+// const INIT : Event = 0;
+// const TOBYTEARRAY : Event = 1;
+// const TOSTRING : Event = 2;
+// const WRITE: Event  = 3;
+// const FLUSH : Event = 4;
+// const CLOSE : Event = 5;
+
+pub fn transition(state : State) -> Vec<State> {
+  match state {
+    INITIAL => [
+      OUTPUTSTREAMCEATED
+    ].to_vec(),
+    OUTPUTSTREAMCEATED => [
+      SET_ZERO,
+      SET_ZERO,
+      SET_ZERO,
+      WRITING,
+      FLUSHED,
+      CLOSED
+    ].to_vec(),
+    WRITING => [
+      SET_ZERO,
+      SET_ZERO,
+      SET_ZERO,
+      WRITING,
+      FLUSHED,
+      CLOSED
+    ].to_vec(),
+    FLUSHED => [
+      SET_ZERO,
+      FLUSHED,
+      FLUSHED,
+      WRITING,
+      FLUSHED,
+      CLOSED
+    ].to_vec(),
+    CLOSED => [
+      SET_ZERO,
+      CLOSED,
+      CLOSED
+    ].to_vec(),
+    _ => Vec::new()
+  }
+}
+
 
 pub fn match_trace(trace : Vec<String>) {
   let mut machine: StateMachine<FSM> = StateMachine::new();

@@ -5,12 +5,19 @@ use std::convert::TryInto;
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
 
-pub fn to_trace(lines : io::Lines<io::BufReader<File>>) -> Vec<String> {
-  return lines.map(|l| l.expect("Failed to parse line"))
-              .collect();
-}
+// States eand events both encoded as an i8
+pub type State = i8;
+pub type Event = i8;
 
-const SHUF_SIZE : usize = 16;
+pub const SET_ZERO : State = i8::MIN;
+
+// Largest shuffle supported
+pub const SHUF_SIZE : usize = 16;
+
+// Identity function
+pub const IDEN: [State; SHUF_SIZE] = [
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 14, 15
+];
 
 // Takes indices in the intuitive order, so needs to do some conversions to
 // match Intel's shuffle semantics
@@ -20,7 +27,7 @@ pub fn shuffle_mask(indices : Vec<i8>) -> __m128i {
   let mut shuffle : Vec<i8> = indices.into_iter().map(|x| offset - x).collect();
 
   // Fill with highest bit set so output will be 0's
-  shuffle.resize(SHUF_SIZE, i8::MIN);
+  shuffle.resize(SHUF_SIZE, SET_ZERO);
 
   // Shuffle
   unsafe {
@@ -43,4 +50,10 @@ pub fn shuffle_mask(indices : Vec<i8>) -> __m128i {
       shuffle[0],
     )
   }
+}
+
+// Convert lines of a file to a vec of Strings
+pub fn to_trace(lines : io::Lines<io::BufReader<File>>) -> Vec<String> {
+  return lines.map(|l| l.expect("Failed to parse line"))
+              .collect();
 }
