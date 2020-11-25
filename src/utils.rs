@@ -15,9 +15,11 @@ pub const SET_ZERO : State = i8::MIN;
 pub const SHUF_SIZE : usize = 16;
 
 // Identity function
-pub const IDEN: [State; SHUF_SIZE] = [
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 14, 15
-];
+pub fn iden() -> __m128i {
+  unsafe {
+    _mm_set_epi8(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 14, 15)
+  }
+}
 
 // Takes indices in the intuitive order, so needs to do some conversions to
 // match Intel's shuffle semantics
@@ -49,6 +51,12 @@ pub fn shuffle_mask(indices : Vec<i8>) -> __m128i {
       shuffle[1],
       shuffle[0],
     )
+  }
+}
+
+pub fn gather(before : __m128i, indices: __m128i) -> __m128i {
+  unsafe {
+     _mm_shuffle_epi8(before, indices)
   }
 }
 

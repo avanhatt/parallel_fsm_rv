@@ -33,7 +33,10 @@ fn main() {
   let path = matches.value_of("INPUT").unwrap();
   let lines = read_lines(path).expect("Failed to read the input file.");
   let trace = utils::to_trace(lines);
-  byte_array_output_stream_flush::match_trace(trace);
+  // byte_array_output_stream_flush::match_trace(trace);
+
+  let trace_par = byte_array_output_stream_flush::trace_to_vec(trace);
+  state_enumeration::course_grained_parallel(byte_array_output_stream_flush::INITIAL, trace_par);
 }
 
 #[cfg(test)]
@@ -73,6 +76,8 @@ mod tests {
     // Try red, which should fail
     let _ = machine.consume(&TrafficFSMInput::Red);
     println!("Next state {:?}", machine.state());
+
+    let _ = machine.consume(&TrafficFSMInput::Yellow);
   }
 
 // pub unsafe fn _mm_shuffle_epi8(a: __m128i, b: __m128i) -> __m128i
