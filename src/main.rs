@@ -10,6 +10,7 @@ extern crate strum_macros;
 
 extern crate clap;
 use clap::{Arg, App};
+use crate::byte_array_output_stream_flush::*;
 
 fn main() {
   let matches = App::new("Parallel FSM for Runtime Verification")
@@ -35,8 +36,8 @@ fn main() {
   let trace = utils::to_trace(lines);
   // byte_array_output_stream_flush::match_trace(trace);
 
-  let trace_par = byte_array_output_stream_flush::trace_to_vec(trace);
-  state_enumeration::course_grained_parallel(byte_array_output_stream_flush::INITIAL, trace_par);
+  let trace_par = trace_to_vec(trace);
+  state_enumeration::course_grained_parallel(INITIAL, trace_par, transition);
 }
 
 #[cfg(test)]

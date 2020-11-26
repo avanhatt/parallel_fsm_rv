@@ -30,7 +30,11 @@ pub fn enumerative_transition(
 }
 
 
-pub fn course_grained_parallel(init : State, input : Vec<Event>) {
+pub fn course_grained_parallel(
+  init : State,
+  input : Vec<Event>,
+  get_transitions : fn(State) -> __m128i)
+{
   let cpus = num_cpus::get();
   let workers = std::cmp::min(cpus, 16);
   let chunk_size = input.len() / workers;
@@ -47,7 +51,9 @@ pub fn course_grained_parallel(init : State, input : Vec<Event>) {
   crossbeam::scope(|scope| {
     for chunk in chunks.iter() {
       scope.spawn(move |_| {
-        println!("{:?}", chunk)
+        println!("{:?}", chunk);
+        let state = get_transitions(chunk[0]);
+
       });
     }
   });
