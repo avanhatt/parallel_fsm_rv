@@ -36,11 +36,19 @@ pub fn course_grained_parallel(init : State, input : Vec<Event>) {
   let chunk_size = input.len() / workers;
   println!("Running course grained algorithm with {:?} chunks of size {:?}", workers, chunk_size);
 
-  // TODO: fix lifetime issue
+  // Split input into chunks per worker
+  let chunks = input
+    .into_iter()
+    .chunks(chunk_size)
+    .into_iter()
+    .map(|c| {c.into_iter().collect_vec()})
+    .collect_vec();
+
   crossbeam::scope(|scope| {
-    (0..workers).map(|i| scope.spawn(move |_| {
-      let chunk = &input[i*chunk_size .. (i+1)*chunk_size - 1];
-      println!("{:?} : {:?}", i, chunk)
-    }))
+    for chunk in chunks.iter() {
+      scope.spawn(move |_| {
+        println!("{:?}", chunk)
+      });
+    }
   });
 }
