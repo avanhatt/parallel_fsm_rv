@@ -1,4 +1,5 @@
 use crate::utils::*;
+use itertools::Itertools;
 
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
@@ -35,11 +36,11 @@ pub fn course_grained_parallel(init : State, input : Vec<Event>) {
   let chunk_size = input.len() / workers;
   println!("Running course grained algorithm with {:?} chunks of size {:?}", workers, chunk_size);
 
-  let threads = (0..workers).map(|i| thread::spawn(move ||
-    println!("{:?}", i)
-  ));
-
-  for t in threads {
-    t.join();
-  }
+  // TODO: fix lifetime issue
+  crossbeam::scope(|scope| {
+    (0..workers).map(|i| scope.spawn(move |_| {
+      let chunk = &input[i*chunk_size .. (i+1)*chunk_size - 1];
+      println!("{:?} : {:?}", i, chunk)
+    }))
+  });
 }
