@@ -120,7 +120,7 @@ pub fn transition(event : State) -> __m128i {
 
 pub fn match_trace(trace : Vec<String>) {
   let mut machine: StateMachine<FSM> = StateMachine::new();
-  for event in trace {
+  for (i, event) in trace.iter().enumerate() {
     let _result = match event.as_str() {
       "outputstreaminit" => machine.consume(&FSMInput::outputstreaminit),
       "write" => machine.consume(&FSMInput::write),
@@ -130,6 +130,13 @@ pub fn match_trace(trace : Vec<String>) {
       "tostring" => machine.consume(&FSMInput::tostring),
       _ => Err(()),
     };
+    match machine.state() {
+      FSMState::violation =>
+        println!("\tViolation found on event {:?}, index {:?} ",
+          event,
+          i),
+      _ => ()
+    }
   };
   println!("Final state {:?}", machine.state());
 }
