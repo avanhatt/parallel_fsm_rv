@@ -56,6 +56,17 @@ pub fn shuffle_mask(indices : Vec<i8>) -> __m128i {
   }
 }
 
+pub fn store_to_vec(values : __m128i) -> [i8; SHUF_SIZE] {
+  unsafe {
+    let mut vec : [i8; 16] = [0; SHUF_SIZE];
+    _mm_storeu_si128(
+      vec.as_mut_ptr() as *mut _,
+      values,
+    );
+    vec
+  }
+}
+
 pub fn gather(before : __m128i, indices: __m128i) -> __m128i {
   unsafe {
      _mm_shuffle_epi8(before, indices)

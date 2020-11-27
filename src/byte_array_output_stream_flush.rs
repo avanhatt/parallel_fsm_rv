@@ -1,6 +1,5 @@
 use rust_fsm::*;
 use crate::utils::*;
-use crate::state_enumeration::*;
 
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;

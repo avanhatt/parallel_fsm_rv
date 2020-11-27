@@ -14,15 +14,25 @@ use core::arch::x86_64::*;
 //   }
 // }
 pub fn enumerative_transition(
-    _state : State,
-    input : Vec<Event>,
-    get_transitions : fn(State) -> __m128i)
+    state : &State,
+    input : &Vec<Event>,
+    get_transitions : fn(State) -> __m128i,
+    offset : usize)
     -> __m128i
 {
   let mut states : __m128i = iden();
-  for event in input.iter() {
+  for (i, event) in input.iter().enumerate() {
       let trans = get_transitions(*event);
-      states = gather(states, trans)
+      states = gather(states, trans);
+
+      // Check if there is a violation
+      let states_as_vec = store_to_vec(states);
+      let actual_state = states_as_vec[*state as usize];
+      if actual_state == 0 {
+        println!("Violation found on event {:?}, index {:?} ",
+          event,
+          offset + i);
+      }
   };
   states
 }
@@ -78,15 +88,19 @@ pub fn course_grained_parallel(
     start_states[0] = init;
     for i in 1..num_chunks {
       let previous_start = start_states[i - 1];
-      let mut states_as_vec : [i8; 16] = [0; 16];
-      _mm_storeu_si128(
-        states_as_vec.as_mut_ptr() as *mut _,
-        states_per_chunk[i - 1],
-      );
+      let states_as_vec = store_to_vec(states_per_chunk[i - 1]);
       start_states[i] = states_as_vec[previous_start as usize];
     }
 
     println!("{:?}", start_states);
 
+    // Check for actual violations in parallel
+    let _ = crossbeam::scope(|scope| {
+      for (i, (chunk, start_state)) in chunks.iter().zip(start_states.iter()).enumerate() {
+        scope.spawn(move |_| {
+          enumerative_transition(&start_state, chunk, get_transitions, i*chunk_size)
+        });
+      }
+    });
   }
 }
