@@ -27,7 +27,7 @@ pub fn shuffle_mask(indices : Vec<i8>) -> __m128i {
   assert!(indices.len() <= SHUF_SIZE, "Can shuffle up to {} bytes", SHUF_SIZE);
   let offset : i8 = (SHUF_SIZE - 1).try_into().unwrap();
   let mut shuffle : Vec<i8> = indices.into_iter().map(|x|
-    if { x == SET_ZERO } { SET_ZERO } else { offset - x }
+    if x == SET_ZERO { SET_ZERO } else { offset - x }
   ).collect();
 
   // Fill with highest bit set so output will be 0's
