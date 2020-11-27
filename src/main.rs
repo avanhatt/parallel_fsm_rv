@@ -37,6 +37,8 @@ fn main() {
   let path = matches.value_of("INPUT").unwrap();
   let lines = read_lines(path).expect("Failed to read the input file.");
   let trace = utils::to_trace(lines);
+  println!("Trace has {:?} total events.", trace.len());
+
   if matches.is_present("seq") {
     byte_array_output_stream_flush::match_trace(trace);
     return;

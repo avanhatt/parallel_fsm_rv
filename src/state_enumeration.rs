@@ -61,7 +61,6 @@ pub fn course_grained_parallel(
     .collect_vec();
 
   let num_chunks = chunks.len();
-  println!("Trace has {:?} total events.", size);
   println!("Machine has {:?} logical cores", workers);
   println!("Running course grained algorithm with {:?} chunks of size <= {:?}",
     num_chunks,

@@ -119,6 +119,7 @@ pub fn transition(event : State) -> __m128i {
 }
 
 pub fn match_trace(trace : Vec<String>) {
+  println!("Running machine sequentially");
   let mut machine: StateMachine<FSM> = StateMachine::new();
   for (i, event) in trace.iter().enumerate() {
     let _result = match event.as_str() {
