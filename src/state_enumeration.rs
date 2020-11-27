@@ -22,17 +22,17 @@ pub fn enumerative_transition(
 {
   let mut states : __m128i = iden();
   for (i, event) in input.iter().enumerate() {
-      let trans = get_transitions(*event);
-      states = gather(states, trans);
+    let trans = get_transitions(*event);
+    states = gather(trans, states);
 
-      // Check if there is a violation
-      let states_as_vec = store_to_vec(states);
-      let actual_state = states_as_vec[*state as usize];
-      if actual_state == 0 {
-        println!("Violation found on event {:?}, index {:?} ",
-          event,
-          offset + i);
-      }
+    // Check if there is a violation
+    let states_as_vec = store_to_vec(states);
+    let actual_state = states_as_vec[*state as usize];
+    if actual_state == 0 {
+      println!("\tViolation found on event {:?}, index {:?} ",
+        event,
+        offset + i);
+    }
   };
   states
 }
@@ -49,7 +49,8 @@ pub fn course_grained_parallel(
 {
   let cpus = num_cpus::get();
   let workers = std::cmp::min(cpus, 16);
-  let chunk_size = ceiling_div(input.len(), workers);
+  let size = input.len();
+  let chunk_size = ceiling_div(size, workers);
 
   // Split input into chunks per worker
   let chunks = input
@@ -60,21 +61,24 @@ pub fn course_grained_parallel(
     .collect_vec();
 
   let num_chunks = chunks.len();
+  println!("Trace has {:?} total events.", size);
+  println!("Machine has {:?} logical cores", workers);
   println!("Running course grained algorithm with {:?} chunks of size <= {:?}",
     num_chunks,
     chunk_size);
 
   unsafe {
     // Run each chunk in parallel threads, using gather for fine-grained ILP
+    println!("Running chunks in parallel to determine start states.");
     let states_per_chunk : Vec<__m128i> = crossbeam::scope(|scope| {
       let mut chunk_states : Vec<__m128i> = vec![_mm_setzero_si128(); num_chunks];
       for (i, chunk) in chunks.iter().enumerate() {
         let result = scope.spawn(move |_| {
-          println!("{:?} : {:?}", i, chunk);
+          println!("\tStarting thread {:?} : {:?}", i, chunk);
           let mut states = get_transitions(chunk[0]);
           for event in chunk[1..].iter() {
             let trans = get_transitions(*event);
-            states = gather(states, trans)
+            states = gather(trans, states);
           };
           states
         });
@@ -84,6 +88,7 @@ pub fn course_grained_parallel(
     }).unwrap();
 
     // Sequentially look up the start state for each chunk
+    println!("Sequentially analyzing start states.");
     let mut start_states : Vec<State> = vec![-1; num_chunks];
     start_states[0] = init;
     for i in 1..num_chunks {
@@ -92,9 +97,10 @@ pub fn course_grained_parallel(
       start_states[i] = states_as_vec[previous_start as usize];
     }
 
-    println!("{:?}", start_states);
+    println!("\tStart states per chunk: {:?}", start_states);
 
     // Check for actual violations in parallel
+    println!("Running chunks in parallel to with start states to find violations.");
     let _ = crossbeam::scope(|scope| {
       for (i, (chunk, start_state)) in chunks.iter().zip(start_states.iter()).enumerate() {
         scope.spawn(move |_| {

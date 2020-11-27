@@ -49,7 +49,7 @@ state_machine! {
   },
 }
 
-const _VIOLATION : State = 0;
+const VIOLATION : State = 0;
 pub const INITIAL : State = 1;
 const OUTPUTSTREAMCEATED : State  = 2;
 const WRITING : State = 3;
@@ -63,43 +63,59 @@ const WRITE: Event  = 3;
 const FLUSH : Event = 4;
 const CLOSE : Event = 5;
 
-pub fn transition(state : State) -> __m128i {
-  let trans_vec = match state {
-    INITIAL => [
-      OUTPUTSTREAMCEATED
+pub fn transition(event : State) -> __m128i {
+  let trans_vec = match event {
+    INIT => [
+      VIOLATION,                // VIOLATION
+      OUTPUTSTREAMCEATED,       // INITIAL
+      VIOLATION,                // OUTPUTSTREAMCEATED
+      VIOLATION,                // WRITING
+      VIOLATION,                // FLUSHED
+      VIOLATION,                // CLOSED
     ].to_vec(),
-    OUTPUTSTREAMCEATED => [
-      SET_ZERO,
-      SET_ZERO,
-      SET_ZERO,
-      WRITING,
-      FLUSHED,
-      CLOSED
+    TOBYTEARRAY => [
+      VIOLATION,                // VIOLATION
+      VIOLATION,                // INITIAL
+      VIOLATION,                // OUTPUTSTREAMCEATED
+      VIOLATION,                // WRITING
+      FLUSHED,                  // FLUSHED
+      CLOSED,                   // CLOSED
     ].to_vec(),
-    WRITING => [
-      SET_ZERO,
-      SET_ZERO,
-      SET_ZERO,
-      WRITING,
-      FLUSHED,
-      CLOSED
+    TOSTRING => [
+      VIOLATION,                // VIOLATION
+      VIOLATION,                // INITIAL
+      VIOLATION,                // OUTPUTSTREAMCEATED
+      VIOLATION,                // WRITING
+      FLUSHED,                  // FLUSHED
+      CLOSED,                   // CLOSED
     ].to_vec(),
-    FLUSHED => [
-      SET_ZERO,
-      FLUSHED,
-      FLUSHED,
-      WRITING,
-      FLUSHED,
-      CLOSED
+    WRITE => [
+      VIOLATION,                // VIOLATION
+      VIOLATION,                // INITIAL
+      WRITING,                  // OUTPUTSTREAMCEATED
+      WRITING,                  // WRITING
+      WRITING,                  // FLUSHED
+      VIOLATION,                // CLOSED
     ].to_vec(),
-    CLOSED => [
-      SET_ZERO,
-      CLOSED,
-      CLOSED
+    FLUSH => [
+      VIOLATION,                // VIOLATION
+      VIOLATION,                // INITIAL
+      FLUSHED,                  // OUTPUTSTREAMCEATED
+      FLUSHED,                  // WRITING
+      FLUSHED,                  // FLUSHED
+      VIOLATION,                // CLOSED
+    ].to_vec(),
+    CLOSE => [
+      VIOLATION,                // VIOLATION
+      VIOLATION,                // INITIAL
+      CLOSED,                   // OUTPUTSTREAMCEATED
+      CLOSED,                   // WRITING
+      CLOSED,                   // FLUSHED
+      VIOLATION,                // CLOSED
     ].to_vec(),
     _ => Vec::new()
   };
-  shuffle_mask(trans_vec)
+  to_m128i(trans_vec)
 }
 
 pub fn match_trace(trace : Vec<String>) {
