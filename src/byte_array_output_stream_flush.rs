@@ -4,6 +4,10 @@ use crate::utils::*;
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
 
+use std::io::BufWriter;
+use std::fs::File;
+use std::io::Write;
+
 state_machine! {
   derive(Debug)
   FSM(initial)
@@ -129,6 +133,8 @@ pub fn get_transitions() -> Vec<__m128i> {
 
 pub fn match_trace(trace : Vec<String>) {
   println!("Running machine sequentially");
+  let violations_file = File::create("violations.txt").unwrap();
+  let mut writer = BufWriter::new(&violations_file);
   let mut machine: StateMachine<FSM> = StateMachine::new();
   for (i, event) in trace.iter().enumerate() {
     let _result = match event.as_str() {
@@ -141,10 +147,11 @@ pub fn match_trace(trace : Vec<String>) {
       _ => Err(()),
     };
     match machine.state() {
-      FSMState::violation =>
-        println!("\tViolation found on event {:?}, index {:?} ",
+      FSMState::violation => {
+        let _ = writer.write(format!("\tViolation found on event {:?}, index {:?} ",
           event,
-          i),
+          i).as_bytes()).expect("Unable to write data");
+      }
       _ => ()
     }
   };

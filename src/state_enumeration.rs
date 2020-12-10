@@ -1,5 +1,8 @@
 use crate::utils::*;
 use itertools::Itertools;
+use std::io::BufWriter;
+use std::fs::File;
+use std::io::Write;
 
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
@@ -17,10 +20,12 @@ pub fn enumerative_transition(
     state : &State,
     input : &Vec<Event>,
     transitions : &Vec<__m128i>,
-    offset : usize)
+    offset : usize,
+    file : &File)
     -> __m128i
 {
   let mut states : __m128i = iden();
+  let mut writer = BufWriter::new(file);
   for (i, event) in input.iter().enumerate() {
     let trans = transitions[*event as usize];
     states = gather(trans, states);
@@ -29,9 +34,9 @@ pub fn enumerative_transition(
     let states_as_vec = store_to_vec(states);
     let actual_state = states_as_vec[*state as usize];
     if actual_state == 0 {
-      println!("\tViolation found on event {:?}, index {:?} ",
+      writer.write(format!("\tViolation found on event {:?}, index {:?} ",
         event,
-        offset + i);
+        offset + i).as_bytes()).expect("Unable to write data");
     }
   };
   states
@@ -47,12 +52,16 @@ pub fn course_grained_parallel(
   input : Vec<Event>,
   get_transitions : fn() -> Vec<__m128i>)
 {
-  let cpus = num_cpus::get();
+  let cpus = num_cpus::get_physical();
   let workers = std::cmp::min(cpus, 16);
   let size = input.len();
   let chunk_size = ceiling_div(size, workers);
   let transitions = get_transitions();
   let read_transitions = &transitions;
+
+  // Write violations out to a file
+  let violations_file = File::create("violations.txt").unwrap();
+  let violations_ref = &violations_file;
 
   // Split input into chunks per worker
   let chunks = input
@@ -63,7 +72,7 @@ pub fn course_grained_parallel(
     .collect_vec();
 
   let num_chunks = chunks.len();
-  println!("Machine has {:?} logical cores", workers);
+  println!("Machine has {:?} physical cores", workers);
   println!("Running course grained algorithm with {:?} chunks of size <= {:?}",
     num_chunks,
     chunk_size);
@@ -105,7 +114,11 @@ pub fn course_grained_parallel(
     let _ = crossbeam::scope(|scope| {
       for (i, (chunk, start_state)) in chunks.iter().zip(start_states.iter()).enumerate() {
         scope.spawn(move |_| {
-          enumerative_transition(&start_state, chunk, read_transitions, i*chunk_size)
+          enumerative_transition(&start_state,
+                                chunk,
+                                read_transitions,
+                                i*chunk_size,
+                                violations_ref)
         });
       }
     });
