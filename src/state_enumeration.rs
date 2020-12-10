@@ -16,13 +16,13 @@ use core::arch::x86_64::*;
 pub fn enumerative_transition(
     state : &State,
     input : &Vec<Event>,
-    get_transitions : fn(State) -> __m128i,
+    transitions : &Vec<__m128i>,
     offset : usize)
     -> __m128i
 {
   let mut states : __m128i = iden();
   for (i, event) in input.iter().enumerate() {
-    let trans = get_transitions(*event);
+    let trans = transitions[*event as usize];
     states = gather(trans, states);
 
     // Check if there is a violation
@@ -45,12 +45,14 @@ fn ceiling_div(a : usize, b : usize) -> usize {
 pub fn course_grained_parallel(
   init : State,
   input : Vec<Event>,
-  get_transitions : fn(State) -> __m128i)
+  get_transitions : fn() -> Vec<__m128i>)
 {
   let cpus = num_cpus::get();
   let workers = std::cmp::min(cpus, 16);
   let size = input.len();
   let chunk_size = ceiling_div(size, workers);
+  let transitions = get_transitions();
+  let read_transitions = &transitions;
 
   // Split input into chunks per worker
   let chunks = input
@@ -73,10 +75,10 @@ pub fn course_grained_parallel(
       let mut chunk_states : Vec<__m128i> = vec![_mm_setzero_si128(); num_chunks];
       for (i, chunk) in chunks.iter().enumerate() {
         let result = scope.spawn(move |_| {
-          println!("\tStarting thread {:?} : {:?}", i, chunk);
-          let mut states = get_transitions(chunk[0]);
+          // println!("\tStarting thread {:?} : {:?}", i, chunk);
+          let mut states = read_transitions[chunk[0] as usize];
           for event in chunk[1..].iter() {
-            let trans = get_transitions(*event);
+            let trans = read_transitions[*event as usize];
             states = gather(trans, states);
           };
           states
@@ -103,7 +105,7 @@ pub fn course_grained_parallel(
     let _ = crossbeam::scope(|scope| {
       for (i, (chunk, start_state)) in chunks.iter().zip(start_states.iter()).enumerate() {
         scope.spawn(move |_| {
-          enumerative_transition(&start_state, chunk, get_transitions, i*chunk_size)
+          enumerative_transition(&start_state, chunk, read_transitions, i*chunk_size)
         });
       }
     });

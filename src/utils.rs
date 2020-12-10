@@ -4,7 +4,7 @@ use std::io::{self};
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
 
-// States eand events both encoded as an i8
+// States and events both encoded as i8
 pub type State = i8;
 pub type Event = i8;
 

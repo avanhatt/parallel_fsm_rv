@@ -46,7 +46,7 @@ fn main() {
 
   // Run parallel version
   let trace_par = trace_to_vec(trace);
-  state_enumeration::course_grained_parallel(INITIAL, trace_par, transition);
+  state_enumeration::course_grained_parallel(INITIAL, trace_par, get_transitions);
 }
 
 #[cfg(test)]

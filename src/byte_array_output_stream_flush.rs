@@ -62,8 +62,9 @@ const TOSTRING : Event = 2;
 const WRITE: Event  = 3;
 const FLUSH : Event = 4;
 const CLOSE : Event = 5;
+const NUM_EVENTS : Event = 6;
 
-pub fn transition(event : State) -> __m128i {
+fn transition(event : State) -> __m128i {
   let trans_vec = match event {
     INIT => [
       VIOLATION,                // VIOLATION
@@ -116,6 +117,14 @@ pub fn transition(event : State) -> __m128i {
     _ => Vec::new()
   };
   to_m128i(trans_vec)
+}
+
+pub fn get_transitions() -> Vec<__m128i> {
+  let mut transitions : Vec<__m128i> = Vec::new();
+  for event in 0..NUM_EVENTS {
+    transitions.push(transition(event));
+  };
+  transitions
 }
 
 pub fn match_trace(trace : Vec<String>) {
