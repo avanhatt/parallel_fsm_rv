@@ -21,11 +21,20 @@ fn main() {
                     .arg(Arg::with_name("seq")
                       .long("seq")
                       .help("Run sequentially"))
+                    .arg(Arg::with_name("par")
+                      .long("par")
+                      .takes_value(true)
+                      .help("Parallelism factor (number of cores), defaults to
+                        number of physical cores on the machine"))
                     .get_matches();
 
   use std::fs::File;
   use std::io::{self, BufRead};
   use std::path::Path;
+
+  if matches.is_present("seq") && matches.is_present("par") {
+    panic!("Cannot provide both sequential flag and parallelism factor")
+  }
 
   fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
   where P: AsRef<Path>, {
@@ -43,6 +52,9 @@ fn main() {
     byte_array_output_stream_flush::match_trace(trace);
     return;
   }
+
+  // Get parallelism factor
+
 
   // Run parallel version
   let trace_par = trace_to_vec(trace);

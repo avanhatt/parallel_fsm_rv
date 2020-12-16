@@ -11,6 +11,9 @@ import sys
     metavar='<out>')
 @click.option('--dedup/--no-dedup', default=True)
 def preprocess(out, dedup):
+    """Preprocess trace by removing tags, splitting on monitor instance, and
+    writing to a new file per monitor instance.
+    """
     slicing = defaultdict(list)
     for line in sys.stdin.readlines():
         line = line.replace("AVH:", "")
