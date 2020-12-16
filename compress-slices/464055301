@@ -1,0 +1,6 @@
+outputstreaminit
+write
+write
+close
+write
+tobytearray

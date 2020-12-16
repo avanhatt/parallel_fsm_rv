@@ -1,0 +1,5 @@
+outputstreaminit
+write
+flush
+close
+tobytearray

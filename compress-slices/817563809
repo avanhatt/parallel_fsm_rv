@@ -1,0 +1,14 @@
+outputstreaminit
+write
+write
+write
+write
+write
+write
+write
+close
+write
+write
+write
+tobytearray
+close
