@@ -73,7 +73,7 @@ pub fn course_grained_parallel(
     .collect_vec();
 
   let num_chunks = chunks.len();
-  println!("Machine has {:?} physical cores", workers);
+  println!("Machine has {:?} physical cores, running with {:?} workers", cpus, workers);
   println!("Running course grained algorithm with {:?} chunks of size <= {:?}",
     num_chunks,
     chunk_size);
