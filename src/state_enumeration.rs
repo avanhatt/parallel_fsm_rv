@@ -50,10 +50,11 @@ fn ceiling_div(a : usize, b : usize) -> usize {
 pub fn course_grained_parallel(
   init : State,
   input : Vec<Event>,
-  get_transitions : fn() -> Vec<__m128i>)
+  get_transitions : fn() -> Vec<__m128i>,
+  par: std::option::Option<&str>)
 {
   let cpus = num_cpus::get_physical();
-  let workers = std::cmp::min(cpus, 16);
+  let workers = if let Some(p) = par { std::cmp::min(cpus, p.parse::<usize>().unwrap()) } else { cpus };
   let size = input.len();
   let chunk_size = ceiling_div(size, workers);
   let transitions = get_transitions();

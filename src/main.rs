@@ -54,11 +54,11 @@ fn main() {
   }
 
   // Get parallelism factor
-
+  let par = matches.value_of("par");
 
   // Run parallel version
   let trace_par = trace_to_vec(trace);
-  state_enumeration::course_grained_parallel(INITIAL, trace_par, get_transitions);
+  state_enumeration::course_grained_parallel(INITIAL, trace_par, get_transitions, par);
 }
 
 #[cfg(test)]
