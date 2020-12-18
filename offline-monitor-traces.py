@@ -3,6 +3,7 @@ import os
 import re
 import sys
 import subprocess
+import time
 
 executable = "./target/release/parallel_fsm_rv"
 
@@ -18,7 +19,8 @@ def num_events(filename):
     metavar='<out>')
 @click.option('-p', '--par', type=str)
 @click.option('-s', '--size', type=int)
-def monitor(slices, par, size):
+@click.option('-n', type=int, default=1)
+def monitor(slices, par, size, n):
     # Build the executable
     subprocess.check_call(["cargo", "build"])
 
@@ -30,12 +32,18 @@ def monitor(slices, par, size):
         else:
             flags += ["--par", par]
 
+    start_time = time.time()
     for filename in os.listdir(slices):
         if size:
             if num_events(os.path.join(slices, filename)) < size:
                 continue
         print("Checking trace:", filename)
-        subprocess.run([executable, os.path.join(slices, filename)] + flags)
+        for _ in range(n):
+            subprocess.run([executable, os.path.join(slices, filename)] + flags)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+
+
 
 if __name__ == '__main__':
     monitor()
