@@ -1,5 +1,7 @@
 #![allow(non_camel_case_types)]
 
+use log::info;
+
 pub mod byte_array_output_stream_flush;
 pub mod utils;
 pub mod state_enumeration;
@@ -46,7 +48,7 @@ fn main() {
   let path = matches.value_of("INPUT").unwrap();
   let lines = read_lines(path).expect("Failed to read the input file.");
   let trace = utils::to_trace(lines);
-  println!("Trace has {:?} total events.", trace.len());
+  info!("Trace has {:?} total events.", trace.len());
 
   if matches.is_present("seq") {
     byte_array_output_stream_flush::match_trace(trace);
@@ -64,6 +66,7 @@ fn main() {
 #[cfg(test)]
 mod tests {
   use crate::utils::*;
+  use log::info;
   use rust_fsm::*;
   #[cfg(target_arch = "x86_64")]
   use core::arch::x86_64::*;
@@ -89,15 +92,15 @@ mod tests {
   fn simple_traffic_light() {
     // Initialize the state machine. The state is `Stopping` now.
     let mut machine: StateMachine<TrafficFSM> = StateMachine::new();
-    println!("Initial state {:?}", machine.state());
+    info!("Initial state {:?}", machine.state());
 
     // Consume the `Green` input.
     let _ = machine.consume(&TrafficFSMInput::Green);
-    println!("Next state {:?}", machine.state());
+    info!("Next state {:?}", machine.state());
 
     // Try red, which should fail
     let _ = machine.consume(&TrafficFSMInput::Red);
-    println!("Next state {:?}", machine.state());
+    info!("Next state {:?}", machine.state());
 
     let _ = machine.consume(&TrafficFSMInput::Yellow);
   }
@@ -116,7 +119,7 @@ mod tests {
         mem.as_mut_ptr() as *mut _,
         c,
       );
-      println!("mem: {:?}", mem);
+      info!("mem: {:?}", mem);
     }
   }
 

@@ -3,6 +3,7 @@ use itertools::Itertools;
 use std::io::BufWriter;
 use std::fs::File;
 use std::io::Write;
+use log::info;
 
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
@@ -73,19 +74,19 @@ pub fn course_grained_parallel(
     .collect_vec();
 
   let num_chunks = chunks.len();
-  println!("Machine has {:?} physical cores, running with {:?} workers", cpus, workers);
-  println!("Running course grained algorithm with {:?} chunks of size <= {:?}",
+  info!("Machine has {:?} physical cores, running with {:?} workers", cpus, workers);
+  info!("Running course grained algorithm with {:?} chunks of size <= {:?}",
     num_chunks,
     chunk_size);
 
   unsafe {
     // Run each chunk in parallel threads, using gather for fine-grained ILP
-    println!("Running chunks in parallel to determine start states.");
+    info!("Running chunks in parallel to determine start states.");
     let states_per_chunk : Vec<__m128i> = crossbeam::scope(|scope| {
       let mut chunk_states : Vec<__m128i> = vec![_mm_setzero_si128(); num_chunks];
       for (i, chunk) in chunks.iter().enumerate() {
         let result = scope.spawn(move |_| {
-          // println!("\tStarting thread {:?} : {:?}", i, chunk);
+          // info!("\tStarting thread {:?} : {:?}", i, chunk);
           let mut states = read_transitions[chunk[0] as usize];
           for event in chunk[1..].iter() {
             let trans = read_transitions[*event as usize];
@@ -99,7 +100,7 @@ pub fn course_grained_parallel(
     }).unwrap();
 
     // Sequentially look up the start state for each chunk
-    println!("Sequentially analyzing start states.");
+    info!("Sequentially analyzing start states.");
     let mut start_states : Vec<State> = vec![-1; num_chunks];
     start_states[0] = init;
     for i in 1..num_chunks {
@@ -108,10 +109,10 @@ pub fn course_grained_parallel(
       start_states[i] = states_as_vec[previous_start as usize];
     }
 
-    println!("\tStart states per chunk: {:?}", start_states);
+    info!("\tStart states per chunk: {:?}", start_states);
 
     // Check for actual violations in parallel
-    println!("Running chunks in parallel to with start states to find violations.");
+    info!("Running chunks in parallel to with start states to find violations.");
     let _ = crossbeam::scope(|scope| {
       for (i, (chunk, start_state)) in chunks.iter().zip(start_states.iter()).enumerate() {
         scope.spawn(move |_| {

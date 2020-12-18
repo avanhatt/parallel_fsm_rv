@@ -22,7 +22,7 @@ def num_events(filename):
 @click.option('-n', type=int, default=1)
 def monitor(slices, par, size, n):
     # Build the executable
-    subprocess.check_call(["cargo", "build"])
+    subprocess.check_call(["cargo", "build", "--release"])
 
     # Parse options
     flags = []
@@ -42,6 +42,7 @@ def monitor(slices, par, size, n):
             subprocess.run([executable, os.path.join(slices, filename)] + flags)
     end_time = time.time()
     elapsed_time = end_time - start_time
+    print("Time: ", elapsed_time)
 
 
 

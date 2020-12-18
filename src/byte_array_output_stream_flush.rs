@@ -1,5 +1,6 @@
 use rust_fsm::*;
 use crate::utils::*;
+use log::info;
 
 #[cfg(target_arch = "x86_64")]
 use core::arch::x86_64::*;
@@ -132,7 +133,7 @@ pub fn get_transitions() -> Vec<__m128i> {
 }
 
 pub fn match_trace(trace : Vec<String>) {
-  println!("Running machine sequentially");
+  info!("Running machine sequentially");
   let violations_file = File::create("violations.txt").unwrap();
   let mut writer = BufWriter::new(&violations_file);
   let mut machine: StateMachine<FSM> = StateMachine::new();
@@ -155,7 +156,7 @@ pub fn match_trace(trace : Vec<String>) {
       _ => ()
     }
   };
-  println!("Final state {:?}", machine.state());
+  info!("Final state {:?}", machine.state());
 }
 
 pub fn trace_to_vec(trace : Vec<String>) -> Vec<i8> {
